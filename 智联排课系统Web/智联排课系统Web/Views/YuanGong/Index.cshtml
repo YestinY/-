@@ -1,0 +1,140 @@
+﻿@{
+    Layout = null;
+}
+@model List<Models.ZhiWeiBiao>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>员工管理</title>
+    <meta charset="UTF-8">
+    <script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="https://cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/plugins/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/css/fs.css" media="all" />
+    <script type="text/javascript" src="/MyFsLayui/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fsDict.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fs.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/frame.js?v=1.7.0"></script>
+    <script>
+        function ConvertTime(obj) {
+            var time = new Date(parseInt(obj.substr(6)));
+            alert(time);
+            return time.toLocaleDateString();
+        };
+    </script>
+</head>
+<body>
+    <div>
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space1">
+                <div class="layui-col-md12">
+                    <!---构建查询区start -->
+                    <div class="layui-form-query">
+                        <form class="layui-form" id="query_form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-mid">员工：</label>
+                                    <div class="layui-input-inline" style="width: 100px;">
+                                        <input type="text" name="name" autocomplete="off" class="layui-input" />
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-mid">地址：</label>
+                                    <div class="layui-input-inline" style="width: 100px;">
+                                        <input type="text" name="Addr" autocomplete="off" class="layui-input" />
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-mid">职位：</label>
+                                    <div class="layui-input-inline" style="width: 100px;">
+                                          <select name="ZhiWeiMing" lay-verify="required">
+                                            <option value="-1">--不限--</option>
+                                            @foreach (var a in Model)
+                                            {
+                                                <option value="@a.ID">@a.ZhiWeiMing</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-mid">状态：</label>
+                                    <div class="layui-input-inline" style="width: 100px;">
+                                          <select name="zt" lay-verify="required">
+                                            <option value="-1">--不限--</option>
+                                            <option value="1">在职</option>
+                                            <option value="2">离职</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="layui-inline">
+                                    <div class="layui-input-inline">
+                                        <button class="layui-btn" type="button" function="query"><i class="layui-icon">&#xe615;</i>查询</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!---构建查询区end -->
+                <div class="layui-col-md12">
+                    <div class="layui-row grid-demo">
+                        <div class="layui-col-md12">
+                            <!--外部按钮通过function=top 打开窗口-->
+                            <button class="layui-btn" function="top" topurl="/YuanGong/Add" topwidth="800px" ismaximize="0" topheight="600px" toptitle="添加员工信息">
+                                <i class="layui-icon">&#xe654;</i>新增
+                            </button>
+                            <button class="layui-btn layui-btn-danger" function="submit" method="get" url="/YuanGong/DeleteManyId"ismutidml="1" isconfirm="1" confirmmsg="是否确定删除选中的数据？" inputs="ID:"><i class="layui-icon">&#xe640;</i>批量删除
+                            </button>
+                            <button class="layui-btn" function="refresh">
+                                <i class="layui-icon">&#x1002;</i>刷新
+                            </button>
+                        </div>
+                        <div class="layui-col-md12">
+                            <!--表格占位符，通过设置html属性，异步构建表格-->
+                            <table id="fsDatagrid" lay-filter="fsDatagrid" class="fsDatagrid" isload="1"
+                                   url="/YuanGong/GetYG" ispage="1" pagesize="10" height="full-160"></table>
+                            <!--定义列-->
+                            <div class="fsDatagridCols">
+                                <p checkbox="true" />
+                                <p type="numbers" title="序号" />
+                                <p field="ID" title="编号" width="100" />
+                                <p field="Name" title="员工姓名" width="200" />
+                                <p field="ShanChangKeCheng" title="擅长课程"   width="120" />
+                                <p field="Address"  title="家庭地址" width="100" />
+                                <p field="Phone" title="电话号码" width="100" />
+                                <p field="YuanGongZhuangTai" title="员工状态" width="100" templet="#stateTpl" />
+                                <p fixed="right" align="center" title="操作" width="220" toolbar="#barDemo" />
+                            </div>
+                            <script type="text/html" id="stateTpl">
+                                <input type="checkbox" name="YuanGongZhuangTai" lay-skin="switch" disabled lay-text="在职|离职" {{ d.YuanGongZhuangTai ==1 ? 'checked' : '' }}>
+                            </script>
+                            <script type="text/html" id="stateTp2">
+                                <input type="checkbox" name="ShiFouQiYong" lay-skin="switch" disabled lay-text="通过|未通" {{ d.YuanGongZhuangTai ==true ? 'checked' : '' }}>
+                            </script>
+                            <!--定义操作列-->
+                            <script type="text/html" id="barDemo">
+                                <!--打开一个对话框  lay-event="top"-->
+                                <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="top" topurl="/YuanGong/Edit"
+                                   topwidth="800px" topheight="640px" toptitle="修改" inputs="ID:">修改员工信息</a>
+                                <!--执行ajax提交  lay-event="submit"-->
+                                {{#  if(d.YuanGongZhuangTai ==2){ }}
+                                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="submit" url="/YuanGong/RenZhi"
+                                   isconfirm="1" method="get" confirmmsg="当前员工是否确定任职 ？" inputs="ID:">任职</a>
+                                {{# } else { }}
+                                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="submit" url="/YuanGong/Delete"
+                                   isconfirm="1" method="get" confirmmsg="当前员工是否确定离职 ？" inputs="ID:">离职</a>
+                                {{#  } }}
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+  

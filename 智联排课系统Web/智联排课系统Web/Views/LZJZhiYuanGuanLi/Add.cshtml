@@ -1,0 +1,81 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>新增教学阶段</title>
+    <script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="https://cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/plugins/layui/css/layui.css" media="all" />
+
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/css/fs.css" media="all" />
+
+    <script type="text/javascript" src="/MyFsLayui/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/tinymce/jquery.tinymce.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fsDict.js?v=1.5.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fs.js?v=1.5.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/frame.js?v=1.5.0"></script>
+</head>
+<body>
+    <div class="layui-fluid">
+
+        <!--表单开始 start -->
+        <form class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label">资源名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="ZiYuanMing" required="" lay-vertype="tips" lay-verify="required"
+                           placeholder="请输入资源名" autocomplete="off" class="layui-input" />
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">资源类型</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <select name="ZiYuanLeiXing" lay-verify="required">
+                        <option value="不限">--不限--</option>
+                        <option value="教室">教室</option>
+                        <option value="机房">机房</option>
+                        <option value="报告厅">报告厅</option>
+                        <option value="会议室">会议室</option>
+                    </select>
+                </div>
+                <label class="layui-form-label">资源位置</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <select name="ZiYuanWeiZhi" lay-verify="required">
+                        <option value="不限">--不限--</option>
+                        <option value="二楼">二楼</option>
+                        <option value="三楼">三楼</option>
+                        <option value="四楼">四楼</option>
+                    </select>
+                </div>
+                <label class="layui-form-label">是否合班</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="checkbox" name="ShiFouYunHuDuoBanTongPai" lay-skin="switch" lay-text="是|否" value="true" checked>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">容纳人数</label>
+                <div class="layui-input-block">
+                    <input type="text" name="ZiYuanRongNaRenShu" required="" lay-vertype="tips" lay-verify="required"
+                           placeholder="请输入容纳人数" autocomplete="off" class="layui-input" />
+                </div>
+            </div>
+            <hr />
+            <div class="layui-form-item" style="text-align: center;">
+                <button class="layui-btn" lay-submit="" lay-filter="save" url="/LZJZhiYuanGuanLi/AddAction">新增</button>
+                <button type="button" class="layui-btn layui-btn-primary" function="close">关闭</button>
+            </div>
+        </form>
+        <!--表单开始 end -->
+    </div>
+
+</body>
+</html>

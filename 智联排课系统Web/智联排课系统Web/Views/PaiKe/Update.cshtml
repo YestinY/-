@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddPage</title>
+    <script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="https://cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/plugins/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/css/fs.css" media="all" />
+    <script type="text/javascript" src="/MyFsLayui/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fsDict.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fs.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/frame.js?v=1.7.0"></script>
+        <script>
+            function ConvertTime(obj) {
+                var time = new Date(parseInt(obj.substr(6)));
+                alert(time);
+                return time.toLocaleDateString();
+            };
+    </script>
+</head>
+<body>
+    <div class="layui-fluid">
+        <!--表单开始 start -->  
+        @{ 
+            DateTime dateTime = DateTime.Now;
+            DateTime date = dateTime.AddDays(7);
+        }
+        <form class="layui-form" id="edit_form" isload="1" method="get" loadurl="/PaiKe/UpdateGetOne">
+            <input type="hidden" name="ID" />
+            <div class="layui-form-item">
+                <label class="layui-form-label">开始时间</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="ks" autocomplete="off" class="layui-input fsDate" datetype="datetime" templet="#stateTp">
+                </div>
+                <label class="layui-form-label">结束时间</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="js" autocomplete="off" class="layui-input fsDate" datetype="datetime" templet="#stateTp2">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">是否采用</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="checkbox" name="ShiFouCaiYong" lay-skin="switch" lay-text="是|否" value="false" checked>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">是否完成</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="checkbox" name="ShiFouWanCheng" lay-skin="switch" lay-text="否|是" value="false" checked>
+                </div>
+            </div>
+            <hr />
+            <div class="layui-form-item" style="text-align: center;">
+                <button class="layui-btn" lay-submit="" lay-filter="save" url="/PaiKe/UpdataAction">新增</button>
+                <button type="button" class="layui-btn layui-btn-primary" function="close">关闭</button>
+            </div>
+                     <script type="text/html" id="stateTp2">
+                <span>{{ ConvertTime(d.KaiShiShiJian) }}</span>
+            </script>
+            <script type="text/html" id="stateTp">
+                <span>{{ ConvertTime(d.JieShuShiJian) }}</span>
+            </script>
+        </form>
+        <!--表单开始 end -->
+    </div>
+</body>
+</html>

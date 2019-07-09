@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>员工管理</title>
+    <meta charset="UTF-8">
+    <script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="https://cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/plugins/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/css/fs.css" media="all" />
+    <script type="text/javascript" src="/MyFsLayui/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fsDict.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fs.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/frame.js?v=1.7.0"></script>
+</head>
+<body>
+   <div>
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space1">
+                <!---构建查询区end -->
+                <div class="layui-col-md12">
+                    <div class="layui-row grid-demo">
+                        <div class="layui-col-md12">
+                            <!--外部按钮通过function=top 打开窗口-->
+                            <button class="layui-btn" function="top" topurl="/BuMen/AddZhiWei" topwidth="800px" ismaximize="0" topheight="600px" toptitle="添加职位" inputs="menuId:@ViewBag.id">
+                                <i class="layui-icon">&#xe654;</i>新增
+                            </button>
+                            <button class="layui-btn" function="refresh">
+                                <i class="layui-icon">&#x1002;</i>刷新
+                            </button>
+                        </div>
+                    
+
+                        <div class="layui-col-md12">
+                            <!--表格占位符，通过设置html属性，异步构建表格-->
+                            <table id="fsDatagrid" lay-filter="fsDatagrid" class="fsDatagrid" isload="1" url="/BuMen/AZhiWei" ispage="1" pagesize="10" height="full-160" inputs="menuId:@ViewBag.id" ></table>
+                            <!--定义列-->
+                            <div class="fsDatagridCols">
+                                <p checkbox="true" />
+                                <p type="numbers" title="序号" />
+                                <p field="ID" title="编号" width="100" />
+                                <p field="ZhiWeiMing" title="职位名称" width="200" />
+                                <p field="BuMenID" title="部门ID" width="100" />
+                                <p field="ShiFouQiYong" title="职位状态" width="100" templet="#stateTp2" />
+                                <p field="BeiZhu" title="职位状态" width="100"/ >
+                                <p fixed="right" align="center" title="操作" width="220" toolbar="#barDemo" />
+                            </div>
+
+                            <script type="text/html" id="stateTp2">
+                                <input type="checkbox" name="ShiFouQiYong" lay-skin="switch" disabled lay-text="通过|未通" {{ d.ShiFouQiYong ==true ? 'checked' : '' }}>
+                            </script>
+                            <!--定义操作列-->
+                            <script type="text/html" id="barDemo">
+                                <!--打开一个对话框  lay-event="top"-->
+                                <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="top" topurl="/BuMen/UpdateZW"
+                                    topwidth="700px" topheight="500px" toptitle="修改" inputs="ID:">修改</a>
+                                <!--执行ajax提交  lay-event="submit"-->
+                                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="submit" url="/BuMen/DelZW"
+                                   isconfirm="1" method="get" confirmmsg="是否确定删除当前记录？" inputs="ID:">删除</a>
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

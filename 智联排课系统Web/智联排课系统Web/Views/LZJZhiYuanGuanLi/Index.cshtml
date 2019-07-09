@@ -1,0 +1,146 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="https://cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/plugins/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/css/fs.css" media="all" />
+    <script type="text/javascript" src="/MyFsLayui/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fsDict.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fs.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/frame.js?v=1.7.0"></script>
+
+</head>
+<body>
+    <div>
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space1">
+                <div class="layui-col-md12">
+                    <!---构建查询区start -->
+                    <div class="layui-form-query">
+                        <form class="layui-form" id="query_form">
+                            <div class="layui-form-item">
+
+
+                                <div class="layui-inline">
+                                    <label class="layui-form-mid">资源名：</label>
+                                    <div class="layui-input-inline" style="width: 100px;">
+                                        <input type="text" name="ZiYuanMing" autocomplete="off" class="layui-input" />
+                                    </div>
+                                </div>
+
+                                <div class="layui-inline">
+                                    <label class="layui-form-mid">资源类型：</label>
+                                    <div class="layui-input-inline" style="width: 100px;">
+                                        <select name="ZiYuanLeiXing" lay-verify="required">
+                                            <option value="">--不限--</option>
+                                            <option value="教室">教室</option>
+                                            <option value="机房">机房</option>
+                                            <option value="报告厅">报告厅</option>
+                                            <option value="会议室">会议室</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-mid">资源位置：</label>
+                                    <div class="layui-input-inline" style="width: 100px;">
+                                        <select name="ZiYuanWeiZhi" lay-verify="required">
+                                            <option value="">--不限--</option>
+                                            <option value="二楼">二楼</option>
+                                            <option value="三楼">三楼</option>
+                                            <option value="四楼">四楼</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="layui-inline">
+                                    <div class="layui-input-inline">
+                                        <button class="layui-btn" type="button" function="query"><i class="layui-icon">&#xe615;</i>查询</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="layui-col-md12">
+                    <form class="layui-form">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">安排班级数:</label>
+                            <div class="layui-input-inline">
+                                <input type="number" name="ClassCount" id="ClassCount" required="" lay-vertype="tips" lay-verify="required"
+                                       placeholder="请输入班级数" autocomplete="off" class="layui-input" value="3" />
+                            </div>
+                        </div>
+                        <div class="layui-form-mid" style="text-align: center;">
+                        </div>
+                    </form>
+                </div>
+                <!---构建查询区end -->
+                <div class="layui-col-md12">
+                    <div class="layui-row grid-demo">
+                        <div class="layui-col-md12">
+                            <!--外部按钮通过function=top 打开窗口-->
+                            <button class="layui-btn" function="top" topurl="/LZJZhiYuanGuanLi/Add" topwidth="800px" ismaximize="0" topheight="600px" toptitle="新增资源">
+                                <i class="layui-icon">&#xe654;</i>新增
+                            </button>
+                            <button class="layui-btn layui-btn-danger" function="submit" method="get" url="/LZJZhiYuanGuanLi/DeleteManyId"
+                                    ismutidml="1" isconfirm="1" confirmmsg="是否确定删除选中的数据？" inputs="ID:">
+                                <i class="layui-icon">&#xe640;</i>批量删除
+                            </button>
+                            <button class="layui-btn layui-btn-danger" function="submit" method="get" url="/BeCiPaiKeZYCS/Add" ismutidml="1" isconfirm="1" confirmmsg="是否确定设置选中的数据？" inputs="ID:,ClassCount:#ClassCount:">
+                                <i class="layui-icon">&#xe654;</i>批量设置教室数量
+                            </button>
+                            <button class="layui-btn" function="refresh">
+                                <i class="layui-icon">&#x1002;</i>刷新
+                            </button>
+                        </div>
+                        <div class="layui-col-md12">
+
+                            <!--表格占位符，通过设置html属性，异步构建表格-->
+                            <table id="fsDatagrid" lay-filter="fsDatagrid" class="fsDatagrid" isload="1"
+                                   url="/LZJZhiYuanGuanLi/GetStudentAjax" ispage="1" pagesize="10" height="full-160"></table>
+                            <!--定义列-->
+                            <div class="fsDatagridCols">
+                                <p checkbox="true" />
+                                <p type="numbers" title="序号" />
+
+                                <p field="ID" title="编号" width="100" />
+                                <p field="ZiYuanMing" title="资源名" width="200" />
+
+                                <p field="ZiYuanLeiXing" title="资源类型" width="100" />
+
+                                <p field="ZiYuanWeiZhi" title="资源位置" width="100" />
+                                <p field="ZiYuanRongNaRenShu" title="资源容纳人数" width="300" />
+                                <p field="BeiZhu" title="备注" width="100" />
+                                <p field="ShiFouYunHuDuoBanTongPai" title="是否合班上课" width="100" templet="#stateTpl" />
+                                <p fixed="right" align="center" toolbar="#barDemo" title="操作" width="220" />
+                            </div>
+                            <script type="text/html" id="stateTpl">
+                                <input type="checkbox" name="ShiFouYunHuDuoBanTongPai" lay-skin="switch" disabled lay-text="是|否" {{ d.ShiFouYunHuDuoBanTongPai ==true ? 'checked' : '' }}>
+                            </script>
+                            <!--定义操作列-->
+                            <script type="text/html" id="barDemo">
+                                <!--打开一个对话框  lay-event="top"-->
+                                <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="top" topurl="/LZJZhiYuanGuanLi/Update"
+                                   topwidth="800px" topheight="640px" toptitle="修改资源信息" inputs="ID:">修改</a>
+                                <!--执行ajax提交  lay-event="submit"-->
+                                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="submit" url="/LZJZhiYuanGuanLi/Delete"
+                                   isconfirm="1" method="get" confirmmsg="是否确定删除当前记录？" inputs="ID:">删除</a>
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

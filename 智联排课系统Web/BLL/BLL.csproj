@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E657D751-EAC8-4DF3-9F98-595FBBA41BB7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLL</RootNamespace>
+    <AssemblyName>BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BanJiBiaoBLL.cs" />
+    <Compile Include="BanJiKaiSheKeChengJiHuaBiaoBLL.cs" />
+    <Compile Include="BanZhuRenSuoDaiBanJiBiaoBLL.cs" />
+    <Compile Include="BeCiPaiKeMorenKeCiBiaoBLL.cs" />
+    <Compile Include="BenCiPaiBanKeYongZiYuanBLL.cs" />
+    <Compile Include="BenCiPaiKeBanJiJiCiShuBLL.cs" />
+    <Compile Include="BenCiPaiKeShiDuanBiaoBLL.cs" />
+    <Compile Include="BLLBase.cs" />
+    <Compile Include="BuMenBiaoBLL.cs" />
+    <Compile Include="CHB\BuMenBiaoBLL.cs" />
+    <Compile Include="CHB\YuanGongBiaoBLL.cs" />
+    <Compile Include="JiaoXueJieDuanBLL.cs" />
+    <Compile Include="LZJ\ZiYuanGuanLiBLL.cs" />
+    <Compile Include="PaiKeFangAnBLL.cs" />
+    <Compile Include="PaiKeListBLL.cs" />
+    <Compile Include="YJY\BanJiKaiSheKeChengJiHuaBiaoBLL.cs" />
+    <Compile Include="YJY\BanZhuRenSuoDaiBanJiBiaoBLL.cs" />
+    <Compile Include="YJY\BeCiPaiKeMorenKeCiBiaoBLL.cs" />
+    <Compile Include="YJY\BenCiPaiBanKeYongZiYuanBLL.cs" />
+    <Compile Include="YJY\BenCiPaiKeBanJiJiCiShuBLL.cs" />
+    <Compile Include="YJY\BenCiPaiKeShiDuanBiaoBLL.cs" />
+    <Compile Include="YJY\JiaoXueJieDuanBLL.cs" />
+    <Compile Include="JiaoXueJiHuaBiaoBLL.cs" />
+    <Compile Include="JiaoXueKeChengBLL.cs" />
+    <Compile Include="JiaoYuanDaiKeBiaoBLL.cs" />
+    <Compile Include="JiaoYuanDuiYingJiHuaZhangJieBLL.cs" />
+    <Compile Include="KeChengPaiKeZongBiaoBLL.cs" />
+    <Compile Include="KeChengShouKeZhangJieBLL.cs" />
+    <Compile Include="KeShiBiaoBLL.cs" />
+    <Compile Include="LSM\LSMjiaoxuejieduanBLL.cs" />
+    <Compile Include="PaiKeBanJiMoRenSheZhiBLL.cs" />
+    <Compile Include="PaiKeJiHuaBLL.cs" />
+    <Compile Include="PaiKeShiDuanYuZiYuanZuHeBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XueShengBiaoBLL.cs" />
+    <Compile Include="XueShengYuBanJiDuiYingBiaoBLL.cs" />
+    <Compile Include="YiCiPaiKeDeKeBiaoXinXiBiaoBLL.cs" />
+    <Compile Include="YJY\JiaoXueJiHuaBiaoBLL.cs" />
+    <Compile Include="YJY\JiaoXueKeChengBLL.cs" />
+    <Compile Include="YJY\JiaoYuanDaiKeBiaoBLL.cs" />
+    <Compile Include="YJY\KeChengPaiKeZongBiaoBLL.cs" />
+    <Compile Include="YJY\PaiKeBanJiMoRenSheZhiBLL.cs" />
+    <Compile Include="YJY\PaiKeFangAnBLL.cs" />
+    <Compile Include="YJY\PaiKeJiHuaBLL.cs" />
+    <Compile Include="YJY\PaiKeListBLL.cs" />
+    <Compile Include="YJY\PaiKeShiDuanYuZiYuanZuHeBLL.cs" />
+    <Compile Include="YJY\XueShengBiaoBLL.cs" />
+    <Compile Include="YJY\YiCiPaiKeDeKeBiaoXinXiBiaoBLL.cs" />
+    <Compile Include="YJY\YuanGongBiaoBLL.cs" />
+    <Compile Include="YJY\ZhengZaiShangKeBiaoBLL.cs" />
+    <Compile Include="YuanGongBiaoBLL.cs" />
+    <Compile Include="ZhengZaiShangKeBiaoBLL.cs" />
+    <Compile Include="ZhiWeiBiaoBLL.cs" />
+    <Compile Include="ZiYuanGuanLiBLL.cs" />
+    <Compile Include="ZM\AnPaiKeChengBLL.cs" />
+    <Compile Include="ZM\BMBLL.cs" />
+    <Compile Include="ZM\BuMenBiaoBLL.cs" />
+    <Compile Include="ZM\DiGuiBLL.cs" />
+    <Compile Include="ZM\JiaoYuanKeShiBLL.cs" />
+    <Compile Include="ZM\MBanJiBiaoBLL.cs" />
+    <Compile Include="ZM\MBanZhuRenSuoDaiBanJiBiaoBLL.cs" />
+    <Compile Include="ZM\MJiaoXueJieDuanBiaoBLL.cs" />
+    <Compile Include="ZM\MXueShengBiaoBLL.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{6635f3f9-d840-463f-8ce7-c31a104303b8}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{c7f8a615-2e2e-4d75-92f3-cafb5b8857d4}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

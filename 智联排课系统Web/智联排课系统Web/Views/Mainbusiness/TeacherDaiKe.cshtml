@@ -1,0 +1,84 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>教员代课</title>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="https://cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/plugins/layui/css/layui.css" media="all" />
+
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/css/fs.css" media="all" />
+
+    <script type="text/javascript" src="/MyFsLayui/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/tinymce/jquery.tinymce.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fsDict.js?v=1.5.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fs.js?v=1.5.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/frame.js?v=1.5.0"></script>
+</head>
+<body>
+    <div class="layui-fluid">
+        @{ Models.ZhengZaiShangKeBiao yiCiPaiKeDeKeBiaoXin = ViewBag.One as Models.ZhengZaiShangKeBiao;
+            List<Models.YuanGongBiao> yuans = ViewBag.TeacherList as List<Models.YuanGongBiao>;
+        }
+        <form class="layui-form" id="edit_form">
+            <input type="hidden" name="ID" value="@yiCiPaiKeDeKeBiaoXin.ID" />
+            <div class="layui-form-item">
+                <label class="layui-form-label">日期</label>
+                <div class="layui-input-block">
+                    <input type="text" name="RiQi" required="" lay-vertype="tips" lay-verify="required"
+                           placeholder="请输入资源名" autocomplete="off" readonly="readonly" class="layui-input" value="@yiCiPaiKeDeKeBiaoXin.RiQi" />
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">课程名</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="KeChengMingChen" required="" lay-vertype="tips" lay-verify="required"
+                           placeholder="请输入资源名" autocomplete="off" readonly="readonly" class="layui-input" value="@yiCiPaiKeDeKeBiaoXin.KeChengMingChen" />
+                </div>
+                <label class="layui-form-label">章节名</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="ZhangJieMingChen" required="" lay-vertype="tips" lay-verify="required"
+                           placeholder="请输入资源名" autocomplete="off" readonly="readonly" class="layui-input" value="@yiCiPaiKeDeKeBiaoXin.ZhangJieMingChen" />
+                </div>
+                <label class="layui-form-label">安排代课教员</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <select name="JiaoYuanBianHao" lay-verify="required">
+                        @{
+                            if (yuans.Count==0)
+                            {
+                                <option value="-">无可用教员</option>
+                            }
+                            else
+                            {
+                                foreach (var item in yuans)
+                                {
+                                    <option value="@item.ID">@item.JiaoYuanMingChen</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item" style="text-align: center;">
+                @if (ViewBag.Msg == "无可安排代课的教员")
+                {
+                    <button class="layui-btn layui-btn-warm layui-btn-radius" disabled="disabled"><i class="layui-icon">&#xe609;</i>不可修改</button>
+                }
+                else
+                {
+                    <button class="layui-btn layui-btn-warm layui-btn-radius" lay-submit="" lay-filter="edit" url="/Mainbusiness/UpdateTeacher"><i class="layui-icon">&#xe609;</i>修改</button>
+                }
+                <button type="button" class="layui-btn layui-btn-primary" function="close">关闭</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

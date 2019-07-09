@@ -1,0 +1,95 @@
+﻿@{
+    Layout = null;
+}
+@model List<Models.BanJiBiao>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>新增学生信息</title>
+    <script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="https://cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/plugins/layui/css/layui.css" media="all" />
+
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/css/fs.css" media="all" />
+
+    <script type="text/javascript" src="/MyFsLayui/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/tinymce/jquery.tinymce.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fsDict.js?v=1.5.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fs.js?v=1.5.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/frame.js?v=1.5.0"></script>
+</head>
+<body>
+    <div class="layui-fluid">
+
+        <!--表单开始 start -->
+        <form class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label">学生姓名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="StudentName" required="" lay-vertype="tips" lay-verify="required" placeholder="请输入学生姓名" autocomplete="off" class="layui-input" />
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">性别</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="checkbox" name="Sex" lay-skin="switch" lay-text="男|女" value="true" checked>
+                </div>
+                <label class="layui-form-label">年龄</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="Age" required="" lay-vertype="tips" lay-verify="required" placeholder="请输入年龄" autocomplete="off" class="layui-input" />
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">班级：</label>
+                <div class="layui-input-block">
+                    <select name="BanJiMing" lay-verify="required">
+                        <option value="-1">--不限--</option>
+                        @foreach (var a in Model)
+                        {
+                            <option value="@a.ID">@a.BanJiMing</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">学生住址</label>
+                <div class="layui-input-block">
+                    <input type="text" name="Address" required="" lay-vertype="tips" lay-verify="required"
+                           placeholder="请输入学生住址" autocomplete="off" class="layui-input" />
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">联系电话</label>
+                <div class="layui-input-block">
+                    <input type="text" name="Phone" required="" lay-vertype="tips" lay-verify="required"
+                           placeholder="请输入联系电话" autocomplete="off" class="layui-input" />
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">家庭电话</label>
+                <div class="layui-input-block">
+                    <input type="text" name="HomePhone" required="" lay-vertype="tips" lay-verify="required"
+                           placeholder="请输入家庭联系电话" autocomplete="off" class="layui-input" />
+                </div>
+            </div>
+
+            <hr />
+            <div class="layui-form-item" style="text-align: center;">
+                <button class="layui-btn" lay-submit="" lay-filter="save" url="/ZM/ZMAddAction">新增</button>
+                <button type="button" class="layui-btn layui-btn-primary" function="close">关闭</button>
+            </div>
+        </form>
+        <!--表单开始 end -->
+    </div>
+</body>
+</html>

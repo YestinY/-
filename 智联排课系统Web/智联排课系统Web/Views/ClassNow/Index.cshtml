@@ -1,0 +1,145 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <meta content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="https://cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/MyFslayui/plugins/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/MyFslayui/css/fs.css" media="all" />
+    <script type="text/javascript" src="/MyFslayui/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="/MyFslayui/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/MyFslayui/plugins/frame/js/fsDict.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFslayui/plugins/frame/js/fs.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFslayui/plugins/frame/js/frame.js?v=1.7.0"></script>
+    <script>
+        function ConvertTime(obj) {
+            var time = new Date(parseInt(obj.substr(6)));
+            return time.toLocaleDateString();
+        };
+    </script>
+</head>
+<body>
+    <div>
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space1">
+                <div class="layui-col-md12">
+                    <!---构建查询区start -->
+                    <div class="layui-form-query">
+                        <form class="layui-form" id="query_form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-mid">班级名称：</label>
+                                    <div class="layui-input-inline" style="width: 150px;">
+                                        <input type="text" name="ClassName" autocomplete="off" class="layui-input" />
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-mid">排课时间：</label>
+                                    <div class="layui-input-inline" style="width: 150px;">
+                                        <input type="text" name="RiQi" autocomplete="off" class="layui-input fsDate" datetype="datetime">
+                                    </div>
+                                </div>
+                                @{
+                                    List<Models.YuanGongBiao> yuanGongs = ViewBag.List as List<Models.YuanGongBiao>;
+                                }
+                                <div class="layui-inline">
+                                    <label class="layui-form-mid">教员名称：</label>
+                                    <div class="layui-input-inline" style="width: 100px;">
+                                        <select name="JiaoYuanBianHao" lay-verify="required">
+                                            <option value="-1">--请选择--</option>
+                                            @foreach (var item in yuanGongs)
+                                            {
+                                                <option value="@item.ID">@item.JiaoYuanMingChen</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <div class="layui-input-inline">
+                                        <button class="layui-btn" type="button" function="query"><i class="layui-icon">&#xe615;</i>查询</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="layui-col-md12">
+                    <div class="layui-row grid-demo">
+                        <div class="layui-col-md12">
+                            <button class="layui-btn layui-btn-danger" function="submit" method="get" url=""
+                                    ismutidml="1" isconfirm="1" confirmmsg="是否确定进行选中班级的调课？" inputs="ID:">
+                                <i class="layui-icon">&#xe642;</i>班级调课
+                            </button>
+                            <button class="layui-btn" function="refresh">
+                                <i class="layui-icon">&#x1002;</i>刷新
+                            </button>
+                            @*<button class="layui-btn layui-btn-warm layui-btn-radius"></button>*@
+                            <a href="/Mainbusiness/ExceFill"><button class="layui-btn layui-btn-warm layui-btn-radius">导出本次课表</button></a>
+                        </div>
+                        <div class="layui-col-md12">
+                            <!--表格占位符，通过设置html属性，异步构建表格-->
+                            <table id="fsDatagrid" lay-filter="fsDatagrid" class="fsDatagrid" isload="1"
+                                   url="/ClassNow/List" ispage="1" pagesize="15" height="full-160"></table>
+                            <!--定义列-->
+                            <div class="fsDatagridCols">
+                                <p checkbox="true" />
+                                <p type="numbers" title="序号" />
+                                <p field="ID" title="编号" width="60" />
+                                <p field="RiQi" title="日期" width="150" templet="#stateTp1" />
+                                <p field="ShiJianDuan" title="时间段" width="80" />
+                                <p field="ShiJianMing" title="时间名" width="140" />
+                                <p field="ClassName" title="班级名" width="120" />
+                                <p field="KeChengBianHao" title="课程编号" width="100" />
+                                <p field="KeChengMingChen" title="课程名称" width="100" />
+                                <p field="ZhangJieMingChen" title="章节名" width="100" />
+                                <p field="ZiYuanBianHao" title="资源编号名称" width="100" />
+                                <p field="ZiYuanMingChen" title="资源名称" width="100" />
+                                <p field="JiaoYuanBianHao" title="教员编号" width="100" />
+                                <p field="JiaoYuanMingChen" title="教员名称" width="100" />
+                                <p field="ShiShiShiJian" title="实施时间" width="100" />
+                                <p field="CanJiaRenYuan" title="参加人员" width="100" />
+                                <p field="ZhuangTai" title="状态" width="100" temlet="#stateTp2" />
+                                <p fixed="right" align="center" title="操作" width="220" toolbar="#barDemo" />
+                            </div>
+                            <script type="text/html" id="stateTp1">
+                                <span>{{ ConvertTime(d.RiQi) }}</span>
+                            </script>
+                            <!--定义操作列-->
+                            <script type="text/html" id="barDemo">
+                                <!--打开一个对话框  lay-event="top"-->
+                                {{#  if(d.KeChengMingChen =="自习"){ }}
+                                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="submit" url="/Mainbusiness/EditKeBiao"
+                                   isconfirm="1" method="get" confirmmsg="是否确定安排为上课？" inputs="ID:">安排为上课</a>
+                                {{# } else { }}
+                                <button type="button" disabled="disabled" class="layui-btn layui-btn-primary layui-btn-xs">
+                                    已安排上课
+                                </button>
+                                <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="top" topurl="/Mainbusiness/TeacherDaiKe"
+                                   topwidth="800px" topheight="640px" toptitle="安排教员代课" inputs="ID:">安排教员代课</a>
+                                {{#  } }}
+                                <!--执行ajax提交  lay-event="submit"-->
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

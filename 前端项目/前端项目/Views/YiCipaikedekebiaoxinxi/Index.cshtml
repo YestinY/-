@@ -1,0 +1,121 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/layui/css/layui.css" rel="stylesheet" />
+    <script src="~/layui/layui.js"></script>
+    <script>
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+            laydate.render({
+                elem: '#test10'
+            , type: 'datetime'
+            , range: '到'
+            , format: 'yyyy年M月d日H时m分s秒'
+            });
+        })
+    </script>
+</head>
+<body style="background-image: url('../../Img/35a85edf8db1cb13ee5ffc73de54564e92584b98.jpg')">
+    <div class="layui-container" style="border: 0px solid red; width: 1360px; padding-top: 15px; padding-bottom: 15px; background-color: bisque">
+        <div class="layui-row">
+            <div class="layui-col-md8" style="margin-left: 120px; border: 0px solid blue;">
+                <h2 style="font-family: 'Arial Unicode MS'">智联排课系统</h2>
+            </div>
+            <div class="layui-col-md2" style="margin-left: 30px">
+                欢迎你,<label>yy</label>
+                &emsp;退出
+            </div>
+        </div>
+    </div>
+
+
+    <div class="layui-row" style="border: 0px solid red; width: 1100px; margin-left: 200px; margin-top: 20px">
+        <div class="layui-col-xs6 layui-col-md12">
+            <div class="grid-demo grid-demo-bg2">
+
+                <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
+          
+                              
+                <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                <script>
+
+                    layui.use('table', function () {
+                        var table = layui.table;
+                        
+                        //方法级渲染
+                        table.render({
+                            elem: '#LAY_table_user'
+                          , url: '/YiCipaikedekebiaoxinxi/GetAll'
+                          , cols: [[
+                            { checkbox: true, fixed: true }
+                            , { field: 'ID', title: '编号', width: 70, sort: true, fixed: true }
+                            , { field: 'RiQi', title: '日期', width: 120}
+                            , { field: 'ShiJianDuan', title: '时间段', width: 80, sort: true }
+                            , { field: 'ShiJianMing', title: '时间名', width: 110 }
+                            , { field: 'KeChengMingChen', title: '课程名称', width: 130 }
+                            , { field: 'ZhangJieMingChen', title: '章节名称', width: 100 }
+                            , { field: 'ZiYuanMingChen', title: '资源名称', width: 100 }
+                            , { field: 'JiaoYuanMingChen', title: '教员名称', width: 100 }
+                            , { field: 'ShiShiShiJian', title: '实施人员', width: 100 }
+                            , { field: 'CanJiaRenYuan', title: '参加人员', width: 100 }
+                            , { field: 'BeiZhu', title: '备注', width: 100 }
+                            , { field: 'ZhuangTai', title: '状态', width: 100 }
+                          ]]
+                          , id: 'testReload'
+                          , page: true
+                          , height: 450
+
+                        });
+                        
+                        var $ = layui.$, active = {
+                            reload: function () {
+                                var demoReload = $('#demoReload');
+
+                                //执行重载
+                                table.reload('testReload', {
+                                    page: {
+                                        curr: 1 //重新从第 1 页开始
+                                    }
+                                  , where: {
+                                      key: {
+                                          id: demoReload.val()
+                                      }
+                                  }
+                                });
+                            }
+                        };
+                        function a(d) {
+                            var dd = new Date.parse(d.substr(6));
+                            return dd.to
+                        }
+
+
+
+                        $('.demoTable .layui-btn').on('click', function () {
+                            var type = $(this).data('type');
+                            active[type] ? active[type].call(this) : '';
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

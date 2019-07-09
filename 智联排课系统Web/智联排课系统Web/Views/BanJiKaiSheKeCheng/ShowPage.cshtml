@@ -1,0 +1,192 @@
+﻿@{
+    Layout = null;
+}
+@model 智联排课系统Web.Models.All
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowPage</title>
+    <meta content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no cache" />
+    <meta http-equiv="Expires" content="0" />
+    @*<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="format-detection" content="telephone=no" />
+        <script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+        <link href="https://cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">*@
+
+    <link rel="stylesheet" type="text/css" href="/MyFslayui/plugins/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/MyFslayui/css/fs.css" media="all" />
+    <script type="text/javascript" src="/MyFslayui/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="/MyFslayui/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/MyFslayui/plugins/frame/js/fsDict.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFslayui/plugins/frame/js/fs.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFslayui/plugins/frame/js/frame.js?v=1.7.0"></script>
+    @*<script type="text/javascript">
+            function ConvertTime(obj) {
+                var time = new Date(parseInt(obj.substr(6)));
+                alert(time);
+                return time.toLocaleDateString();
+            };
+            function OpenDiv() {
+                var Index = layui.open({
+                    type: 2,
+                    height: "200px",
+                    width: "100px",
+                    content: "/BanJiKaiSheKeCheng/Tan",
+                    title: "选择班主任"
+                })
+            }
+        </script>*@
+</head>
+
+<body>
+    @{List<Models.YuanGongBiao> yuans = ViewBag.BZR as List<Models.YuanGongBiao>;}
+    <div class="layui-fluid">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+            <legend>分配班主任</legend>
+        </fieldset>
+        <form class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label">班级名：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="funcNo" lay-verify="required" placeholder="班级名" autocomplete="off" class="layui-input" value="@ViewBag.ClassName" />
+                </div>
+            </div>
+        </form>
+        <form class="layui-form" name="frm2">
+            <input type="hidden" value="@ViewBag.ClassID" name="bjid" id="bjid" />
+            <div class="layui-form-item">
+                <label class="layui-form-label">班主任：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="funcNo" id="txtbzr" placeholder="请选择班主任" autocomplete="off" class="layui-input" value="@ViewBag.BZRName" />
+                    <div class="layui-inline">
+                        <div class="layui-input-inline" style="width: 200px;">
+                            <select name="bzrid" lay-verify="required" lay-search="">
+                                <option value="0">请选择</option>
+                                @foreach (var Item in Model.List2)
+                                {
+                                    <option value="@Item.ID">@Item.JiaoYuanMingChen</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-input-inline">
+                    <button class="layui-btn" lay-submit="" lay-filter="save" url="/BanJiKaiSheKeCheng/BZRFPGL">分配班主任</button>
+                    @*<button class="layui-btn" lay-submit="" lay-filter="save" url="/BanJiKaiSheKeCheng/BZRFPGL">分配</button>*@
+                </div>
+            </div>
+        </form>
+
+        @*新增按课程排教员 start *@
+        <div class="layui-fluid">
+            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+                <legend>按课程分配教员</legend>
+            </fieldset>
+            <form class="layui-form">
+                <div class="layui-form-item">
+                    <input type="hidden" value="@ViewBag.ClassID" name="bjid" id="bjid" />
+                    <div class="layui-inline">
+                        <label class="layui-form-mid">课程列表</label>
+                        <div class="layui-input-inline" style="width: 200px;">
+                            <select name="KCID" lay-verify="required" lay-search="" id="KCID">
+                                <option value="0">请选择</option>
+                                @foreach (var Item in Model.Course)
+                                {
+                                    <option value="@Item.ID">@Item.KeChengMing</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <label class="layui-form-mid">教员列表</label>
+                        <div class="layui-input-inline" style="width: 200px;">
+                            <select name="Teacher" lay-verify="required" lay-search="" id="Teacher">
+                                <option value="0">请选择</option>
+                                @foreach (var item in Model.List)
+                                {
+                                    <option value="@item.ID">@item.JiaoYuanMingChen</option>
+                                }
+                            </select>
+                        </div>
+                        <button class="layui-btn" lay-submit="" lay-filter="save" url="/BanJiKaiSheKeCheng/FenPeiTeacher">分配</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        @*新增按课程排教员 end *@
+
+        @*表格部分*@
+        @*<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+                <legend>按选中章节分配教员</legend>
+            </fieldset>
+            <form class="layui-form">
+
+                <div class="layui-form-item">
+
+                    <div class="layui-inline">
+                        <label class="layui-form-mid">教员列表</label>
+                        <div class="layui-input-inline" style="width: 200px;">
+                            <select name="jylist2" lay-verify="required" lay-search="">
+                                <option value="0">请选择</option>
+                                @foreach (var Item in Model.List)
+                                {
+                                    <option value="@Item.ID">@Item.JiaoYuanMingChen</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <div class="layui-input-inline">
+                            <button class="layui-btn" type="button" id="btnPLFPJy"><i class="layui-icon">&#xe615;</i>批量分配</button>
+                        </div>
+                    </div>
+                </div>
+            </form>*@
+        <div class="layui-col-md12">
+            <table id="fsDatagrid" lay-filter="fsDatagrid" class="fsDatagrid" isload="1" url="/BanJiKaiSheKeCheng/ShowAction?ID=@Request.QueryString["ID"]" ispage="1" pagesize="10" height="full-160"></table>
+            <div class="fsDatagridCols">
+                <p type="numbers" title="序号" />
+                <p checkbox="true" />
+                <p field="ID" title="编号ID" width="75" />
+                <p field="BanJiID" title="班级ID" width="80" />
+                <p field="BanJiMing" title="班级名" width="100" />
+                <p field="KeChengMing" title="课程名" width="150" />
+                <p field="CaiYongJiaoXueJiHua" title="采用教学计划" width="100" />
+                <p field="KaiSheJiaoXueJieDuan" title="开设教学阶段" width="100" />
+                <p field="ZhangJieBianHao" title="章节编号" width="100" />
+                <p field="ZhangJieMingChen" title="章节名称" width="100" />
+                <p field="JianYiKeShi" title="建议课时" width="60" />
+                <p field="ShouKeDeMoShi" title="授课的模式" width="100" />
+                <p field="AnPaiJiaoYuan" title="安排教员" width="100" />
+                @*<p field="AnPaiShiJian" title="安排时间" width="100" templet="#stateTp2" />*@
+                <p field="AnPaiZiYuan" title="安排资源" width="100" />
+                <p field="ShiJiKeShi" title="实际课时" width="100" />
+                <p field="ShiJiJiaoYuan" title="实际教员" width="100" />
+                @*<p field="ShiJiShangKeShiJian" title="实际上课时间" width="100" templet="#stateTp1" />*@
+                <p field="ShiJiZiYuan" title="实际资源" width="100" />
+                <p field="BeiZhu" title="备注" width="100" />
+                <p field="KeChengShunXuHao" title="课程顺序号" width="100" />
+                <p field="ShiFouYiWanCheng" title="是否已完成" width="100" />
+                <p field="ShiFouYiQuXiao" title="是否已取消" width="100" />
+                <p field="ShiFouHeBing" title="是否合并" width="100" />
+            </div>
+            <script type="text/html" id="stateTp2">
+                <span> {{ ConvertTime(d.AnPaiShiJian) }}</span>
+            </script>
+            <script type="text/html" id="stateTp1">
+                <span> {{ ConvertTime(d.ShiJiShangKeShiJian) }}</span>
+            </script>
+            <!--定义操作列-->
+        </div>
+    </div>
+</body>
+</html>

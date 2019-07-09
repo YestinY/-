@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BLL.BanJiBiaoBLL" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>BanJiBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BanJiKaiSheKeChengJiHuaBiaoBLL" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAQAAAAEAAAAAAAAAACAAAAAAAAAACCAAACAAA=</HashCode>
+      <FileName>BanJiKaiSheKeChengJiHuaBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BanZhuRenSuoDaiBanJiBiaoBLL" Collapsed="true">
+    <Position X="20.75" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>BanZhuRenSuoDaiBanJiBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BeCiPaiKeMorenKeCiBiaoBLL" Collapsed="true">
+    <Position X="32" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>BeCiPaiKeMorenKeCiBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BenCiPaiBanKeYongZiYuanBLL" Collapsed="true">
+    <Position X="41" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACCAAAAAAAgAAAAAAAAAgAACACAAAAAA=</HashCode>
+      <FileName>BenCiPaiBanKeYongZiYuanBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BenCiPaiKeBanJiJiCiShuBLL" Collapsed="true">
+    <Position X="50" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACEAAAAAAI=</HashCode>
+      <FileName>BenCiPaiKeBanJiJiCiShuBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BenCiPaiKeShiDuanBiaoBLL" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAgAAAAAAAAAAAACAAAAAAAI=</HashCode>
+      <FileName>BenCiPaiKeShiDuanBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLLBase&lt;T&gt;" Collapsed="true">
+    <Position X="28.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACIgIAAAAAAAAAAAAAAAAAAAAAMAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>BLLBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BuMenBiaoBLL" Collapsed="true">
+    <Position X="23" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAACAAAAAAAA=</HashCode>
+      <FileName>BuMenBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.JiaoXueJieDuanBLL" Collapsed="true">
+    <Position X="34.25" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAACAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>JiaoXueJieDuanBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.JiaoXueJiHuaBiaoBLL" Collapsed="true">
+    <Position X="43.25" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAgAAAFQAAEAAAAAAIAAAAAQAAAACAAAAAQAA=</HashCode>
+      <FileName>JiaoXueJiHuaBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.JiaoXueKeChengBLL" Collapsed="true">
+    <Position X="52.25" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>JiaoXueKeChengBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.JiaoYuanDaiKeBiaoBLL" Collapsed="true">
+    <Position X="5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>JiaoYuanDaiKeBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.JiaoYuanDuiYingJiHuaZhangJieBLL" Collapsed="true">
+    <Position X="14" Y="1.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>JiaoYuanDuiYingJiHuaZhangJieBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.KeChengPaiKeZongBiaoBLL" Collapsed="true">
+    <Position X="25.25" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>KeChengPaiKeZongBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.KeChengShouKeZhangJieBLL" Collapsed="true">
+    <Position X="36.5" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>KeChengShouKeZhangJieBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.KeShiBiaoBLL" Collapsed="true">
+    <Position X="45.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>KeShiBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ZiYuanGuanLiBLL" Collapsed="true">
+    <Position X="54.5" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAADAAAACABAAAAAAAAAAQAAAAAAAACAAQAAAAA=</HashCode>
+      <FileName>LZJ\ZiYuanGuanLiBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.PaiKeBanJiMoRenSheZhiBLL" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAIAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>PaiKeBanJiMoRenSheZhiBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.PaiKeJiHuaBLL" Collapsed="true">
+    <Position X="16.25" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAJAAQACAAAAAAAAwAAAQAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>PaiKeJiHuaBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.PaiKeShiDuanYuZiYuanZuHeBLL" Collapsed="true">
+    <Position X="27.5" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAI=</HashCode>
+      <FileName>PaiKeShiDuanYuZiYuanZuHeBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.XueShengBiaoBLL" Collapsed="true">
+    <Position X="38.75" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>XueShengBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.XueShengYuBanJiDuiYingBiaoBLL" Collapsed="true">
+    <Position X="47.75" Y="1.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>XueShengYuBanJiDuiYingBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.YiCiPaiKeDeKeBiaoXinXiBiaoBLL" Collapsed="true">
+    <Position X="56.75" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAI=</HashCode>
+      <FileName>YiCiPaiKeDeKeBiaoXinXiBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.YuanGongBiaoBLL" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>YuanGongBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ZhengZaiShangKeBiaoBLL" Collapsed="true">
+    <Position X="18.5" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>ZhengZaiShangKeBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ZhiWeiBiaoBLL" Collapsed="true">
+    <Position X="29.75" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>ZhiWeiBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.LSM.LSMjiaoxuejieduanBLL" Collapsed="true">
+    <Position X="59.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAjAAAAAAAAAQBAIAAAAAAAAAEAAANAAgAAAAAgAAA=</HashCode>
+      <FileName>LSM\LSMjiaoxuejieduanBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ZM.MBanJiBiaoBLL" Collapsed="true">
+    <Position X="61" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQQIAAAAAQAAAAAAAAAAAAIAQAAQAEBABEABAAAEQ=</HashCode>
+      <FileName>ZM\MBanJiBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ZM.MBanZhuRenSuoDaiBanJiBiaoBLL" Collapsed="true">
+    <Position X="62.75" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAIAAAEBAAAAAAQAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>ZM\MBanZhuRenSuoDaiBanJiBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ZM.MJiaoXueJieDuanBiaoBLL" Collapsed="true">
+    <Position X="59.25" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>ZM\MJiaoXueJieDuanBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ZM.MXueShengBiaoBLL" Collapsed="true">
+    <Position X="61" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAYAAIAAAAAACAAAAAAAAAAAAAEACAAAiAAAAAggAAA=</HashCode>
+      <FileName>ZM\MXueShengBiaoBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

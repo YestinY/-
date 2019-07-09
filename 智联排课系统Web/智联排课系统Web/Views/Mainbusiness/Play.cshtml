@@ -1,0 +1,40 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Play</title>
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/plugins/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/css/fs.css" media="all" />
+    <script type="text/javascript" src="/MyFsLayui/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fsDict.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fs.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/frame.js?v=1.7.0"></script>
+    <script>
+        function ConvertTime(obj) {
+            var time = new Date(parseInt(obj.substr(6)));
+            return time.toLocaleDateString();
+        };
+    </script>
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-col-md12">
+            <table id="fsDatagrid" lay-filter="fsDatagrid" class="fsDatagrid" isload="1"
+                   url="/Mainbusiness/GetAll" ispage="1" pagesize="10" height="full-160"></table>
+            <!--定义列-->
+            <div class="fsDatagridCols">
+                <p checkbox="true" />
+                <p type="numbers" title="序号" />
+                <p field="ID" title="编号" width="100" />
+                <p field="ScenarioName" title="方案名" width="200" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ZhiLianPaiKeXiTongDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BanJiBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BanJiMing" Type="varchar" MaxLength="50" />
+          <Property Name="BanJiRenShu" Type="int" />
+          <Property Name="KaiBanShiJian" Type="datetime" />
+          <Property Name="BeiZhu" Type="nvarchar" MaxLength="200" />
+          <Property Name="YuJiJieShuShiJian" Type="datetime" />
+          <Property Name="BanJiZhuangTai" Type="int" />
+          <Property Name="JieDuanID" Type="int" />
+          <Property Name="JiaoXuePlan" Type="bit" />
+        </EntityType>
+        <EntityType Name="BanJiKaiSheKeChengJiHuaBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BanJiID" Type="int" />
+          <Property Name="BanJiMing" Type="nvarchar" MaxLength="100" />
+          <Property Name="KeChengMing" Type="int" />
+          <Property Name="CaiYongJiaoXueJiHua" Type="int" />
+          <Property Name="KaiSheJiaoXueJieDuan" Type="int" />
+          <Property Name="ZhangJieBianHao" Type="int" />
+          <Property Name="ZhangJieMingChen" Type="nvarchar" MaxLength="100" />
+          <Property Name="JianYiKeShi" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShouKeDeMoShi" Type="nvarchar" MaxLength="100" />
+          <Property Name="AnPaiJiaoYuan" Type="int" />
+          <Property Name="AnPaiShiJian" Type="datetime" />
+          <Property Name="AnPaiZiYuan" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShiJiKeShi" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShiJiJiaoYuan" Type="int" />
+          <Property Name="ShiJiShangKeShiJian" Type="datetime" />
+          <Property Name="ShiJiZiYuan" Type="nvarchar" MaxLength="100" />
+          <Property Name="BeiZhu" Type="nvarchar" MaxLength="1000" />
+          <Property Name="KeChengShunXuHao" Type="int" />
+          <Property Name="ShiFouYiWanCheng" Type="bit" />
+          <Property Name="ShiFouYiQuXiao" Type="bit" />
+          <Property Name="ShiFouHeBing" Type="bit" />
+        </EntityType>
+        <EntityType Name="BanZhuRenSuoDaiBanJiBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BanJiBianHao" Type="int" />
+          <Property Name="KaiShiDaiBanShiJian" Type="datetime" />
+          <Property Name="JieShuShiJian" Type="datetime" />
+          <Property Name="BanZhuRenBianHao" Type="int" />
+          <Property Name="BeiZhu" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="BeCiPaiKeMorenKeCiBioa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ZiYuanBianHao" Type="int" />
+          <Property Name="ZiYuanMingChen" Type="varchar" MaxLength="30" />
+          <Property Name="ClassCount" Type="int" />
+        </EntityType>
+        <EntityType Name="BenCiPaiBanKeYongZiYuan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KeYongZiYuanBianHao" Type="int" />
+          <Property Name="KeYongZiYuanMingChen" Type="varchar" MaxLength="50" />
+          <Property Name="PaiKeJiHuaBianHao" Type="int" />
+        </EntityType>
+        <EntityType Name="BenCiPaiKeBanJiJiCiShu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DuiYingJiHuaMing" Type="nvarchar" MaxLength="50" />
+          <Property Name="KaiShiShiJian" Type="datetime" />
+          <Property Name="JieShuShiJian" Type="datetime" />
+          <Property Name="BanJiId" Type="int" />
+          <Property Name="BanJiMingChen" Type="varchar" MaxLength="200" />
+          <Property Name="AnPaiLiLunKeCiShu" Type="int" />
+          <Property Name="AnPaiShangJiCiShu" Type="int" />
+          <Property Name="AnPaiJiTaKeCiShu" Type="int" />
+          <Property Name="BeiZhu" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZhuangTai" Type="int" />
+        </EntityType>
+        <EntityType Name="BenCiPaiKeShiDuanBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JiHuaMingChen" Type="varchar" MaxLength="100" />
+          <Property Name="JiHuaBianHao" Type="int" />
+          <Property Name="ShiJian" Type="datetime" />
+          <Property Name="ShiDuan" Type="varchar" MaxLength="50" />
+          <Property Name="DuiYingShiJian" Type="varchar" MaxLength="50" />
+          <Property Name="ShiFouPaiKe" Type="bit" />
+          <Property Name="BeiZhu" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="BuMenBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BuMenMingCheng" Type="varchar" MaxLength="100" />
+          <Property Name="DuiYingFuJiID" Type="int" />
+          <Property Name="Phone" Type="int" />
+          <Property Name="BuMenFuZheRen" Type="varchar" MaxLength="100" />
+          <Property Name="BuMenDengJiGuanXi" Type="varchar" MaxLength="100" />
+          <Property Name="ChengLiTime" Type="datetime" />
+          <Property Name="ShiFouQiYong" Type="bit" />
+        </EntityType>
+        <EntityType Name="JiaoXueJieDuanBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JieDuanMing" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShenHeShiFouTongGuo" Type="bit" />
+          <Property Name="ShiFouQiYong" Type="bit" />
+        </EntityType>
+        <EntityType Name="JiaoXueJiHuaBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JiHuaBianHaoJiBanBen" Type="nvarchar" MaxLength="100" />
+          <Property Name="KaiShiShiYongShiJian" Type="datetime" />
+          <Property Name="ZhongZhiShiYongShiJian" Type="datetime" />
+          <Property Name="ShenHeRen" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShenHeShiFouTongGuo" Type="bit" />
+          <Property Name="ShiFouQiYong" Type="bit" />
+        </EntityType>
+        <EntityType Name="JiaoXueKeCheng">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KeChengMing" Type="nvarchar" MaxLength="100" />
+          <Property Name="SuoShuJiaoXueJiHua" Type="int" />
+          <Property Name="SuoShuJiaoXueJieDuan" Type="int" />
+          <Property Name="JiaoXueJiHuaDeKaiZhanShunXuHao" Type="int" />
+          <Property Name="BeiZhu" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZengJiaShiJian" Type="datetime" />
+          <Property Name="ZengJiaLaiYuan" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShiFouShanChu" Type="bit" />
+        </EntityType>
+        <EntityType Name="JiaoYuanDaiKeBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RiQi" Type="datetime" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShiJianDuan" Type="varchar" MaxLength="100" />
+          <Property Name="ShiJianMing" Type="varchar" MaxLength="100" />
+          <Property Name="KeChengBianHao" Type="varchar" MaxLength="100" />
+          <Property Name="KeChengMingChen" Type="varchar" MaxLength="100" />
+          <Property Name="ZhangJieBianHao" Type="varchar" MaxLength="100" />
+          <Property Name="ZhangJieMingChen" Type="varchar" MaxLength="100" />
+          <Property Name="ZiYuanBianHao" Type="varchar" MaxLength="100" />
+          <Property Name="ZiYuanMingChen" Type="varchar" MaxLength="100" />
+          <Property Name="JiaoYuanBianHao" Type="varchar" MaxLength="100" />
+          <Property Name="JiaoYuanMingChen" Type="varchar" MaxLength="100" />
+          <Property Name="ShiShiShiJian" Type="varchar" MaxLength="100" />
+          <Property Name="CanJiaRenYuan" Type="varchar" MaxLength="100" />
+          <Property Name="BeiZhu" Type="varchar" MaxLength="100" />
+          <Property Name="ZhuangTai" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="JiaoYuanDuiYingJiHuaZhangJie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DuiYingJiHuaMing" Type="int" />
+          <Property Name="BanJiID" Type="varchar" MaxLength="200" />
+          <Property Name="BanJiMingChen" Type="varchar" MaxLength="200" />
+          <Property Name="LiLunKeCiShu" Type="int" />
+          <Property Name="RenKeLaoShi" Type="varchar" MaxLength="200" />
+          <Property Name="RenKeLaoShiMingChen" Type="varchar" MaxLength="200" />
+          <Property Name="ZhiShiDianXuHao" Type="int" />
+          <Property Name="ZhiShiDian" Type="nvarchar" MaxLength="100" />
+          <Property Name="CanJiaLaoShi" Type="nvarchar" MaxLength="100" />
+          <Property Name="CanJiaLaoShiID" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShiFouGeBan" Type="bit" />
+          <Property Name="RenKeLaoShiKeShiShu" Type="int" />
+          <Property Name="CanJiaLaoShiKeShiShu" Type="int" />
+        </EntityType>
+        <EntityType Name="KeChengPaiKeZongBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RiQi" Type="datetime" />
+          <Property Name="ClassName" Type="varchar" MaxLength="50" />
+          <Property Name="ShiJianDuan" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShiJianMing" Type="nvarchar" MaxLength="100" />
+          <Property Name="KeChengBianHao" Type="nvarchar" MaxLength="100" />
+          <Property Name="KeChengMingChen" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZhangJieBianHao" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZhangJieMingChen" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZiYuanBianHao" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZiYuanMingChen" Type="nvarchar" MaxLength="100" />
+          <Property Name="JiaoYuanBianHao" Type="nvarchar" MaxLength="100" />
+          <Property Name="JiaoYuanMingChen" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShiShiShiJian" Type="nvarchar" MaxLength="100" />
+          <Property Name="CanJiaRenYuan" Type="nvarchar" MaxLength="100" />
+          <Property Name="BeiZhu" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZhuangTai" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShangChuanDeWenJian" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="KeChengShouKeZhangJie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SuoShuKeChengMing" Type="nvarchar" MaxLength="100" />
+          <Property Name="SuoShuKeChengBianHao" Type="int" />
+          <Property Name="ZhangJieBianHao" Type="int" />
+          <Property Name="ZhangJieMingChen" Type="nvarchar" MaxLength="100" />
+          <Property Name="JianYiKeShi" Type="int" />
+          <Property Name="JianYiShouKeZiYuan" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShiFouKeGeBanKaiZhan" Type="bit" />
+          <Property Name="ZhangJieShunXuHao" Type="int" />
+          <Property Name="ZengJiaLaiYuan" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShiFouShanChu" Type="bit" />
+        </EntityType>
+        <EntityType Name="KeShiBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeacherID" Type="int" />
+          <Property Name="TeacherName" Type="varchar" MaxLength="100" />
+          <Property Name="ClassID" Type="varchar" MaxLength="100" />
+          <Property Name="ClassName" Type="varchar" MaxLength="100" />
+          <Property Name="KeChengMingChen" Type="varchar" MaxLength="100" />
+          <Property Name="KeChengBianHao" Type="varchar" MaxLength="100" />
+          <Property Name="ShangKeCount" Type="int" />
+          <Property Name="ShiFouWanChengBeKeCheng" Type="bit" />
+          <Property Name="BeiZhu" Type="varchar" MaxLength="100" />
+          <Property Name="ZhuangTai" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PaiKeBanJiMoRenSheZhi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BanJiId" Type="int" />
+          <Property Name="BanJiMingChen" Type="varchar" MaxLength="200" />
+          <Property Name="AnPaiLiLunKeCiShu" Type="int" />
+          <Property Name="AnPaiZiXiKeCiShu" Type="int" />
+          <Property Name="AnPaiJiTaKeCiShu" Type="int" />
+          <Property Name="BeiZhu" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PaiKeFangAnBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScenarioName" Type="nvarchar" MaxLength="200" />
+          <Property Name="one" Type="int" />
+          <Property Name="two" Type="int" />
+          <Property Name="three" Type="int" />
+        </EntityType>
+        <EntityType Name="PaiKeJiHua">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JiHuaMingChen" Type="nvarchar" MaxLength="100" />
+          <Property Name="KaiShiShiJian" Type="datetime" />
+          <Property Name="JieShuShiJian" Type="datetime" />
+          <Property Name="ShiFouCaiYong" Type="bit" />
+          <Property Name="ShiFouWanCheng" Type="bit" />
+        </EntityType>
+        <EntityType Name="PaikeLinshiBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RQ" Type="datetime" />
+          <Property Name="SD" Type="varchar" MaxLength="50" />
+          <Property Name="JS" Type="varchar" MaxLength="50" />
+          <Property Name="BJ" Type="varchar" MaxLength="50" />
+          <Property Name="JY" Type="varchar" MaxLength="50" />
+          <Property Name="KC" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PaiKeList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Time" Type="date" />
+          <Property Name="ClassRoom" Type="varchar" MaxLength="50" />
+          <Property Name="KC" Type="varchar" MaxLength="100" />
+          <Property Name="Teacher" Type="varchar" MaxLength="50" />
+          <Property Name="Class" Type="varchar" MaxLength="50" />
+          <Property Name="SD" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PaiKeShiDuanYuZiYuanZuHe">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KeYongZiYuanBianHao" Type="int" />
+          <Property Name="ZiYuanMing" Type="varchar" MaxLength="100" />
+          <Property Name="ZhouJi_ShiJian" Type="datetime" />
+          <Property Name="ShiJianDuan" Type="varchar" MaxLength="100" />
+          <Property Name="ShiJianMing" Type="varchar" MaxLength="100" />
+          <Property Name="ShiFouPaiKe" Type="bit" />
+        </EntityType>
+        <EntityType Name="XueShengBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentName" Type="varchar" MaxLength="100" />
+          <Property Name="StudentClassID" Type="int" />
+          <Property Name="Sex" Type="bit" />
+          <Property Name="Age" Type="int" />
+          <Property Name="MiMa" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="100" />
+          <Property Name="HomePhone" Type="varchar" MaxLength="100" />
+          <Property Name="ZhuangTai" Type="int" />
+        </EntityType>
+        <EntityType Name="XueShengYuBanJiDuiYingBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="int" />
+          <Property Name="StudentName" Type="varchar" MaxLength="100" />
+          <Property Name="StudentClassID" Type="int" />
+          <Property Name="StudentClass" Type="varchar" MaxLength="100" />
+          <Property Name="StartTiem" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="YiCiPaiKeDeKeBiaoXinXiBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RiQi" Type="datetime" />
+          <Property Name="ClassName" Type="varchar" MaxLength="50" />
+          <Property Name="ShiJianDuan" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShiJianMing" Type="nvarchar" MaxLength="100" />
+          <Property Name="KeChengBianHao" Type="nvarchar" MaxLength="100" />
+          <Property Name="KeChengMingChen" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZhangJieBianHao" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZhangJieMingChen" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZiYuanBianHao" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZiYuanMingChen" Type="nvarchar" MaxLength="100" />
+          <Property Name="JiaoYuanBianHao" Type="nvarchar" MaxLength="100" />
+          <Property Name="JiaoYuanMingChen" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShiShiShiJian" Type="nvarchar" MaxLength="100" />
+          <Property Name="CanJiaRenYuan" Type="nvarchar" MaxLength="100" />
+          <Property Name="BeiZhu" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZhuangTai" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="YuanGongBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RuGangShiJian" Type="varchar" MaxLength="100" />
+          <Property Name="JiaoYuanMingChen" Type="varchar" MaxLength="50" />
+          <Property Name="ZhiWeiID" Type="int" />
+          <Property Name="ShanChangKeCheng" Type="varchar" MaxLength="100" />
+          <Property Name="BeiZhu" Type="varchar" MaxLength="100" />
+          <Property Name="YuanGongZhuangTai" Type="int" />
+          <Property Name="MiMa" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="100" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ZhengZaiShangKeBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RiQi" Type="datetime" />
+          <Property Name="ClassName" Type="varchar" MaxLength="50" />
+          <Property Name="ShiJianDuan" Type="varchar" MaxLength="100" />
+          <Property Name="ShiJianMing" Type="varchar" MaxLength="100" />
+          <Property Name="KeChengBianHao" Type="varchar" MaxLength="100" />
+          <Property Name="KeChengMingChen" Type="varchar" MaxLength="100" />
+          <Property Name="ZhangJieBianHao" Type="varchar" MaxLength="100" />
+          <Property Name="ZhangJieMingChen" Type="varchar" MaxLength="100" />
+          <Property Name="ZiYuanBianHao" Type="varchar" MaxLength="100" />
+          <Property Name="ZiYuanMingChen" Type="varchar" MaxLength="100" />
+          <Property Name="JiaoYuanBianHao" Type="varchar" MaxLength="100" />
+          <Property Name="JiaoYuanMingChen" Type="varchar" MaxLength="100" />
+          <Property Name="ShiShiShiJian" Type="varchar" MaxLength="100" />
+          <Property Name="CanJiaRenYuan" Type="varchar" MaxLength="100" />
+          <Property Name="BeiZhu" Type="varchar" MaxLength="100" />
+          <Property Name="ZhuangTai" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ZhiWeiBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ZhiWeiMing" Type="varchar" MaxLength="100" />
+          <Property Name="ShiFouQiYong" Type="bit" />
+          <Property Name="BuMenID" Type="int" />
+          <Property Name="BeiZhu" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ZiYuanGuanLi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ZiYuanMing" Type="varchar" MaxLength="20" />
+          <Property Name="ZiYuanLeiXing" Type="varchar" MaxLength="20" />
+          <Property Name="ZiYuanWeiZhi" Type="varchar" MaxLength="20" />
+          <Property Name="ZiYuanRongNaRenShu" Type="int" />
+          <Property Name="BeiZhu" Type="int" />
+          <Property Name="ShiFouYunHuDuoBanTongPai" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="ZhiLianPaiKeXiTongDBModelStoreContainer">
+          <EntitySet Name="BanJiBiao" EntityType="Self.BanJiBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BanJiKaiSheKeChengJiHuaBiao" EntityType="Self.BanJiKaiSheKeChengJiHuaBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BanZhuRenSuoDaiBanJiBiao" EntityType="Self.BanZhuRenSuoDaiBanJiBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BeCiPaiKeMorenKeCiBioa" EntityType="Self.BeCiPaiKeMorenKeCiBioa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BenCiPaiBanKeYongZiYuan" EntityType="Self.BenCiPaiBanKeYongZiYuan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BenCiPaiKeBanJiJiCiShu" EntityType="Self.BenCiPaiKeBanJiJiCiShu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BenCiPaiKeShiDuanBiao" EntityType="Self.BenCiPaiKeShiDuanBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BuMenBiao" EntityType="Self.BuMenBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JiaoXueJieDuanBiao" EntityType="Self.JiaoXueJieDuanBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JiaoXueJiHuaBiao" EntityType="Self.JiaoXueJiHuaBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JiaoXueKeCheng" EntityType="Self.JiaoXueKeCheng" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JiaoYuanDaiKeBiao" EntityType="Self.JiaoYuanDaiKeBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JiaoYuanDuiYingJiHuaZhangJie" EntityType="Self.JiaoYuanDuiYingJiHuaZhangJie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KeChengPaiKeZongBiao" EntityType="Self.KeChengPaiKeZongBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KeChengShouKeZhangJie" EntityType="Self.KeChengShouKeZhangJie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KeShiBiao" EntityType="Self.KeShiBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaiKeBanJiMoRenSheZhi" EntityType="Self.PaiKeBanJiMoRenSheZhi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaiKeFangAnBiao" EntityType="Self.PaiKeFangAnBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaiKeJiHua" EntityType="Self.PaiKeJiHua" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaikeLinshiBiao" EntityType="Self.PaikeLinshiBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaiKeList" EntityType="Self.PaiKeList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaiKeShiDuanYuZiYuanZuHe" EntityType="Self.PaiKeShiDuanYuZiYuanZuHe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="XueShengBiao" EntityType="Self.XueShengBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="XueShengYuBanJiDuiYingBiao" EntityType="Self.XueShengYuBanJiDuiYingBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YiCiPaiKeDeKeBiaoXinXiBiao" EntityType="Self.YiCiPaiKeDeKeBiaoXinXiBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YuanGongBiao" EntityType="Self.YuanGongBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZhengZaiShangKeBiao" EntityType="Self.ZhengZaiShangKeBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZhiWeiBiao" EntityType="Self.ZhiWeiBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZiYuanGuanLi" EntityType="Self.ZiYuanGuanLi" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ZhiLianPaiKeXiTongDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BanJiBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BanJiMing" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BanJiRenShu" Type="Int32" />
+          <Property Name="KaiBanShiJian" Type="DateTime" Precision="3" />
+          <Property Name="BeiZhu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="YuJiJieShuShiJian" Type="DateTime" Precision="3" />
+          <Property Name="BanJiZhuangTai" Type="Int32" />
+          <Property Name="JieDuanID" Type="Int32" />
+          <Property Name="JiaoXuePlan" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="BanJiKaiSheKeChengJiHuaBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BanJiID" Type="Int32" />
+          <Property Name="BanJiMing" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="KeChengMing" Type="Int32" />
+          <Property Name="CaiYongJiaoXueJiHua" Type="Int32" />
+          <Property Name="KaiSheJiaoXueJieDuan" Type="Int32" />
+          <Property Name="ZhangJieBianHao" Type="Int32" />
+          <Property Name="ZhangJieMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="JianYiKeShi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShouKeDeMoShi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AnPaiJiaoYuan" Type="Int32" />
+          <Property Name="AnPaiShiJian" Type="DateTime" Precision="3" />
+          <Property Name="AnPaiZiYuan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShiJiKeShi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShiJiJiaoYuan" Type="Int32" />
+          <Property Name="ShiJiShangKeShiJian" Type="DateTime" Precision="3" />
+          <Property Name="ShiJiZiYuan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BeiZhu" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="KeChengShunXuHao" Type="Int32" />
+          <Property Name="ShiFouYiWanCheng" Type="Boolean" />
+          <Property Name="ShiFouYiQuXiao" Type="Boolean" />
+          <Property Name="ShiFouHeBing" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="BanZhuRenSuoDaiBanJiBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BanJiBianHao" Type="Int32" />
+          <Property Name="KaiShiDaiBanShiJian" Type="DateTime" Precision="3" />
+          <Property Name="JieShuShiJian" Type="DateTime" Precision="3" />
+          <Property Name="BanZhuRenBianHao" Type="Int32" />
+          <Property Name="BeiZhu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BeCiPaiKeMorenKeCiBioa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZiYuanBianHao" Type="Int32" />
+          <Property Name="ZiYuanMingChen" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ClassCount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BenCiPaiBanKeYongZiYuan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KeYongZiYuanBianHao" Type="Int32" />
+          <Property Name="KeYongZiYuanMingChen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PaiKeJiHuaBianHao" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BenCiPaiKeBanJiJiCiShu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DuiYingJiHuaMing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KaiShiShiJian" Type="DateTime" Precision="3" />
+          <Property Name="JieShuShiJian" Type="DateTime" Precision="3" />
+          <Property Name="BanJiId" Type="Int32" />
+          <Property Name="BanJiMingChen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AnPaiLiLunKeCiShu" Type="Int32" />
+          <Property Name="AnPaiShangJiCiShu" Type="Int32" />
+          <Property Name="AnPaiJiTaKeCiShu" Type="Int32" />
+          <Property Name="BeiZhu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZhuangTai" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BenCiPaiKeShiDuanBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JiHuaMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="JiHuaBianHao" Type="Int32" />
+          <Property Name="ShiJian" Type="DateTime" Precision="3" />
+          <Property Name="ShiDuan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DuiYingShiJian" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShiFouPaiKe" Type="Boolean" />
+          <Property Name="BeiZhu" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BuMenBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BuMenMingCheng" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DuiYingFuJiID" Type="Int32" />
+          <Property Name="Phone" Type="Int32" />
+          <Property Name="BuMenFuZheRen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BuMenDengJiGuanXi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ChengLiTime" Type="DateTime" Precision="3" />
+          <Property Name="ShiFouQiYong" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="JiaoXueJieDuanBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JieDuanMing" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShenHeShiFouTongGuo" Type="Boolean" />
+          <Property Name="ShiFouQiYong" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="JiaoXueJiHuaBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JiHuaBianHaoJiBanBen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="KaiShiShiYongShiJian" Type="DateTime" Precision="3" />
+          <Property Name="ZhongZhiShiYongShiJian" Type="DateTime" Precision="3" />
+          <Property Name="ShenHeRen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShenHeShiFouTongGuo" Type="Boolean" />
+          <Property Name="ShiFouQiYong" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="JiaoXueKeCheng">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KeChengMing" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SuoShuJiaoXueJiHua" Type="Int32" />
+          <Property Name="SuoShuJiaoXueJieDuan" Type="Int32" />
+          <Property Name="JiaoXueJiHuaDeKaiZhanShunXuHao" Type="Int32" />
+          <Property Name="BeiZhu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZengJiaShiJian" Type="DateTime" Precision="3" />
+          <Property Name="ZengJiaLaiYuan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShiFouShanChu" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="JiaoYuanDaiKeBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RiQi" Type="DateTime" Precision="3" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShiJianDuan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ShiJianMing" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KeChengBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KeChengMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZhangJieBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZhangJieMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZiYuanBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZiYuanMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="JiaoYuanBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="JiaoYuanMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ShiShiShiJian" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CanJiaRenYuan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BeiZhu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZhuangTai" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="JiaoYuanDuiYingJiHuaZhangJie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DuiYingJiHuaMing" Type="Int32" />
+          <Property Name="BanJiID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BanJiMingChen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LiLunKeCiShu" Type="Int32" />
+          <Property Name="RenKeLaoShi" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="RenKeLaoShiMingChen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ZhiShiDianXuHao" Type="Int32" />
+          <Property Name="ZhiShiDian" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CanJiaLaoShi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CanJiaLaoShiID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShiFouGeBan" Type="Boolean" />
+          <Property Name="RenKeLaoShiKeShiShu" Type="Int32" />
+          <Property Name="CanJiaLaoShiKeShiShu" Type="Int32" />
+        </EntityType>
+        <EntityType Name="KeChengPaiKeZongBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RiQi" Type="DateTime" Precision="3" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShiJianDuan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShiJianMing" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="KeChengBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="KeChengMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZhangJieBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZhangJieMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZiYuanBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZiYuanMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="JiaoYuanBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="JiaoYuanMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShiShiShiJian" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CanJiaRenYuan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BeiZhu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZhuangTai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShangChuanDeWenJian" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="KeChengShouKeZhangJie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SuoShuKeChengMing" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SuoShuKeChengBianHao" Type="Int32" />
+          <Property Name="ZhangJieBianHao" Type="Int32" />
+          <Property Name="ZhangJieMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="JianYiKeShi" Type="Int32" />
+          <Property Name="JianYiShouKeZiYuan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShiFouKeGeBanKaiZhan" Type="Boolean" />
+          <Property Name="ZhangJieShunXuHao" Type="Int32" />
+          <Property Name="ZengJiaLaiYuan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShiFouShanChu" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="KeShiBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeacherID" Type="Int32" />
+          <Property Name="TeacherName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ClassID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ClassName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KeChengMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KeChengBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ShangKeCount" Type="Int32" />
+          <Property Name="ShiFouWanChengBeKeCheng" Type="Boolean" />
+          <Property Name="BeiZhu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZhuangTai" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PaiKeBanJiMoRenSheZhi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BanJiId" Type="Int32" />
+          <Property Name="BanJiMingChen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AnPaiLiLunKeCiShu" Type="Int32" />
+          <Property Name="AnPaiZiXiKeCiShu" Type="Int32" />
+          <Property Name="AnPaiJiTaKeCiShu" Type="Int32" />
+          <Property Name="BeiZhu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PaiKeFangAnBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScenarioName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="one" Type="Int32" />
+          <Property Name="two" Type="Int32" />
+          <Property Name="three" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PaiKeJiHua">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JiHuaMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="KaiShiShiJian" Type="DateTime" Precision="3" />
+          <Property Name="JieShuShiJian" Type="DateTime" Precision="3" />
+          <Property Name="ShiFouCaiYong" Type="Boolean" />
+          <Property Name="ShiFouWanCheng" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="PaikeLinshiBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RQ" Type="DateTime" Precision="3" />
+          <Property Name="SD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BJ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PaiKeList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Time" Type="DateTime" Precision="0" />
+          <Property Name="ClassRoom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Teacher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PaiKeShiDuanYuZiYuanZuHe">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KeYongZiYuanBianHao" Type="Int32" />
+          <Property Name="ZiYuanMing" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZhouJi_ShiJian" Type="DateTime" Precision="3" />
+          <Property Name="ShiJianDuan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ShiJianMing" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ShiFouPaiKe" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="XueShengBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StudentClassID" Type="Int32" />
+          <Property Name="Sex" Type="Boolean" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="MiMa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HomePhone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZhuangTai" Type="Int32" />
+        </EntityType>
+        <EntityType Name="XueShengYuBanJiDuiYingBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int32" />
+          <Property Name="StudentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StudentClassID" Type="Int32" />
+          <Property Name="StudentClass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StartTiem" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="YiCiPaiKeDeKeBiaoXinXiBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RiQi" Type="DateTime" Precision="3" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShiJianDuan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShiJianMing" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="KeChengBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="KeChengMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZhangJieBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZhangJieMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZiYuanBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZiYuanMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="JiaoYuanBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="JiaoYuanMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShiShiShiJian" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CanJiaRenYuan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BeiZhu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZhuangTai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="YuanGongBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RuGangShiJian" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="JiaoYuanMingChen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ZhiWeiID" Type="Int32" />
+          <Property Name="ShanChangKeCheng" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BeiZhu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="YuanGongZhuangTai" Type="Int32" />
+          <Property Name="MiMa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ZhengZaiShangKeBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RiQi" Type="DateTime" Precision="3" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShiJianDuan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ShiJianMing" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KeChengBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KeChengMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZhangJieBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZhangJieMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZiYuanBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZiYuanMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="JiaoYuanBianHao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="JiaoYuanMingChen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ShiShiShiJian" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CanJiaRenYuan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BeiZhu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZhuangTai" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ZhiWeiBiao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZhiWeiMing" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ShiFouQiYong" Type="Boolean" />
+          <Property Name="BuMenID" Type="Int32" />
+          <Property Name="BeiZhu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ZiYuanGuanLi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZiYuanMing" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ZiYuanLeiXing" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ZiYuanWeiZhi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ZiYuanRongNaRenShu" Type="Int32" />
+          <Property Name="BeiZhu" Type="Int32" />
+          <Property Name="ShiFouYunHuDuoBanTongPai" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="ZhiLianPaiKeXiTongDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BanJiBiao" EntityType="Self.BanJiBiao" />
+          <EntitySet Name="BanJiKaiSheKeChengJiHuaBiao" EntityType="Self.BanJiKaiSheKeChengJiHuaBiao" />
+          <EntitySet Name="BanZhuRenSuoDaiBanJiBiao" EntityType="Self.BanZhuRenSuoDaiBanJiBiao" />
+          <EntitySet Name="BeCiPaiKeMorenKeCiBioa" EntityType="Self.BeCiPaiKeMorenKeCiBioa" />
+          <EntitySet Name="BenCiPaiBanKeYongZiYuan" EntityType="Self.BenCiPaiBanKeYongZiYuan" />
+          <EntitySet Name="BenCiPaiKeBanJiJiCiShu" EntityType="Self.BenCiPaiKeBanJiJiCiShu" />
+          <EntitySet Name="BenCiPaiKeShiDuanBiao" EntityType="Self.BenCiPaiKeShiDuanBiao" />
+          <EntitySet Name="BuMenBiao" EntityType="Self.BuMenBiao" />
+          <EntitySet Name="JiaoXueJieDuanBiao" EntityType="Self.JiaoXueJieDuanBiao" />
+          <EntitySet Name="JiaoXueJiHuaBiao" EntityType="Self.JiaoXueJiHuaBiao" />
+          <EntitySet Name="JiaoXueKeCheng" EntityType="Self.JiaoXueKeCheng" />
+          <EntitySet Name="JiaoYuanDaiKeBiao" EntityType="Self.JiaoYuanDaiKeBiao" />
+          <EntitySet Name="JiaoYuanDuiYingJiHuaZhangJie" EntityType="Self.JiaoYuanDuiYingJiHuaZhangJie" />
+          <EntitySet Name="KeChengPaiKeZongBiao" EntityType="Self.KeChengPaiKeZongBiao" />
+          <EntitySet Name="KeChengShouKeZhangJie" EntityType="Self.KeChengShouKeZhangJie" />
+          <EntitySet Name="KeShiBiao" EntityType="Self.KeShiBiao" />
+          <EntitySet Name="PaiKeBanJiMoRenSheZhi" EntityType="Self.PaiKeBanJiMoRenSheZhi" />
+          <EntitySet Name="PaiKeFangAnBiao" EntityType="Self.PaiKeFangAnBiao" />
+          <EntitySet Name="PaiKeJiHua" EntityType="Self.PaiKeJiHua" />
+          <EntitySet Name="PaikeLinshiBiao" EntityType="Self.PaikeLinshiBiao" />
+          <EntitySet Name="PaiKeList" EntityType="Self.PaiKeList" />
+          <EntitySet Name="PaiKeShiDuanYuZiYuanZuHe" EntityType="Self.PaiKeShiDuanYuZiYuanZuHe" />
+          <EntitySet Name="XueShengBiao" EntityType="Self.XueShengBiao" />
+          <EntitySet Name="XueShengYuBanJiDuiYingBiao" EntityType="Self.XueShengYuBanJiDuiYingBiao" />
+          <EntitySet Name="YiCiPaiKeDeKeBiaoXinXiBiao" EntityType="Self.YiCiPaiKeDeKeBiaoXinXiBiao" />
+          <EntitySet Name="YuanGongBiao" EntityType="Self.YuanGongBiao" />
+          <EntitySet Name="ZhengZaiShangKeBiao" EntityType="Self.ZhengZaiShangKeBiao" />
+          <EntitySet Name="ZhiWeiBiao" EntityType="Self.ZhiWeiBiao" />
+          <EntitySet Name="ZiYuanGuanLi" EntityType="Self.ZiYuanGuanLi" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ZhiLianPaiKeXiTongDBModelStoreContainer" CdmEntityContainer="ZhiLianPaiKeXiTongDBEntities">
+          <EntitySetMapping Name="BanJiBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BanJiBiao">
+              <MappingFragment StoreEntitySet="BanJiBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BanJiMing" ColumnName="BanJiMing" />
+                <ScalarProperty Name="BanJiRenShu" ColumnName="BanJiRenShu" />
+                <ScalarProperty Name="KaiBanShiJian" ColumnName="KaiBanShiJian" />
+                <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+                <ScalarProperty Name="YuJiJieShuShiJian" ColumnName="YuJiJieShuShiJian" />
+                <ScalarProperty Name="BanJiZhuangTai" ColumnName="BanJiZhuangTai" />
+                <ScalarProperty Name="JieDuanID" ColumnName="JieDuanID" />
+                <ScalarProperty Name="JiaoXuePlan" ColumnName="JiaoXuePlan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BanJiKaiSheKeChengJiHuaBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BanJiKaiSheKeChengJiHuaBiao">
+              <MappingFragment StoreEntitySet="BanJiKaiSheKeChengJiHuaBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BanJiID" ColumnName="BanJiID" />
+                <ScalarProperty Name="BanJiMing" ColumnName="BanJiMing" />
+                <ScalarProperty Name="KeChengMing" ColumnName="KeChengMing" />
+                <ScalarProperty Name="CaiYongJiaoXueJiHua" ColumnName="CaiYongJiaoXueJiHua" />
+                <ScalarProperty Name="KaiSheJiaoXueJieDuan" ColumnName="KaiSheJiaoXueJieDuan" />
+                <ScalarProperty Name="ZhangJieBianHao" ColumnName="ZhangJieBianHao" />
+                <ScalarProperty Name="ZhangJieMingChen" ColumnName="ZhangJieMingChen" />
+                <ScalarProperty Name="JianYiKeShi" ColumnName="JianYiKeShi" />
+                <ScalarProperty Name="ShouKeDeMoShi" ColumnName="ShouKeDeMoShi" />
+                <ScalarProperty Name="AnPaiJiaoYuan" ColumnName="AnPaiJiaoYuan" />
+                <ScalarProperty Name="AnPaiShiJian" ColumnName="AnPaiShiJian" />
+                <ScalarProperty Name="AnPaiZiYuan" ColumnName="AnPaiZiYuan" />
+                <ScalarProperty Name="ShiJiKeShi" ColumnName="ShiJiKeShi" />
+                <ScalarProperty Name="ShiJiJiaoYuan" ColumnName="ShiJiJiaoYuan" />
+                <ScalarProperty Name="ShiJiShangKeShiJian" ColumnName="ShiJiShangKeShiJian" />
+                <ScalarProperty Name="ShiJiZiYuan" ColumnName="ShiJiZiYuan" />
+                <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+                <ScalarProperty Name="KeChengShunXuHao" ColumnName="KeChengShunXuHao" />
+                <ScalarProperty Name="ShiFouYiWanCheng" ColumnName="ShiFouYiWanCheng" />
+                <ScalarProperty Name="ShiFouYiQuXiao" ColumnName="ShiFouYiQuXiao" />
+                <ScalarProperty Name="ShiFouHeBing" ColumnName="ShiFouHeBing" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BanZhuRenSuoDaiBanJiBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BanZhuRenSuoDaiBanJiBiao">
+              <MappingFragment StoreEntitySet="BanZhuRenSuoDaiBanJiBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BanJiBianHao" ColumnName="BanJiBianHao" />
+                <ScalarProperty Name="KaiShiDaiBanShiJian" ColumnName="KaiShiDaiBanShiJian" />
+                <ScalarProperty Name="JieShuShiJian" ColumnName="JieShuShiJian" />
+                <ScalarProperty Name="BanZhuRenBianHao" ColumnName="BanZhuRenBianHao" />
+                <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BeCiPaiKeMorenKeCiBioa">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BeCiPaiKeMorenKeCiBioa">
+              <MappingFragment StoreEntitySet="BeCiPaiKeMorenKeCiBioa">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ZiYuanBianHao" ColumnName="ZiYuanBianHao" />
+                <ScalarProperty Name="ZiYuanMingChen" ColumnName="ZiYuanMingChen" />
+                <ScalarProperty Name="ClassCount" ColumnName="ClassCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BenCiPaiBanKeYongZiYuan">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BenCiPaiBanKeYongZiYuan">
+              <MappingFragment StoreEntitySet="BenCiPaiBanKeYongZiYuan">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KeYongZiYuanBianHao" ColumnName="KeYongZiYuanBianHao" />
+                <ScalarProperty Name="KeYongZiYuanMingChen" ColumnName="KeYongZiYuanMingChen" />
+                <ScalarProperty Name="PaiKeJiHuaBianHao" ColumnName="PaiKeJiHuaBianHao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BenCiPaiKeBanJiJiCiShu">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BenCiPaiKeBanJiJiCiShu">
+              <MappingFragment StoreEntitySet="BenCiPaiKeBanJiJiCiShu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DuiYingJiHuaMing" ColumnName="DuiYingJiHuaMing" />
+                <ScalarProperty Name="KaiShiShiJian" ColumnName="KaiShiShiJian" />
+                <ScalarProperty Name="JieShuShiJian" ColumnName="JieShuShiJian" />
+                <ScalarProperty Name="BanJiId" ColumnName="BanJiId" />
+                <ScalarProperty Name="BanJiMingChen" ColumnName="BanJiMingChen" />
+                <ScalarProperty Name="AnPaiLiLunKeCiShu" ColumnName="AnPaiLiLunKeCiShu" />
+                <ScalarProperty Name="AnPaiShangJiCiShu" ColumnName="AnPaiShangJiCiShu" />
+                <ScalarProperty Name="AnPaiJiTaKeCiShu" ColumnName="AnPaiJiTaKeCiShu" />
+                <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+                <ScalarProperty Name="ZhuangTai" ColumnName="ZhuangTai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BenCiPaiKeShiDuanBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BenCiPaiKeShiDuanBiao">
+              <MappingFragment StoreEntitySet="BenCiPaiKeShiDuanBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="JiHuaMingChen" ColumnName="JiHuaMingChen" />
+                <ScalarProperty Name="JiHuaBianHao" ColumnName="JiHuaBianHao" />
+                <ScalarProperty Name="ShiJian" ColumnName="ShiJian" />
+                <ScalarProperty Name="ShiDuan" ColumnName="ShiDuan" />
+                <ScalarProperty Name="DuiYingShiJian" ColumnName="DuiYingShiJian" />
+                <ScalarProperty Name="ShiFouPaiKe" ColumnName="ShiFouPaiKe" />
+                <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuMenBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BuMenBiao">
+              <MappingFragment StoreEntitySet="BuMenBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BuMenMingCheng" ColumnName="BuMenMingCheng" />
+                <ScalarProperty Name="DuiYingFuJiID" ColumnName="DuiYingFuJiID" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="BuMenFuZheRen" ColumnName="BuMenFuZheRen" />
+                <ScalarProperty Name="BuMenDengJiGuanXi" ColumnName="BuMenDengJiGuanXi" />
+                <ScalarProperty Name="ChengLiTime" ColumnName="ChengLiTime" />
+                <ScalarProperty Name="ShiFouQiYong" ColumnName="ShiFouQiYong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JiaoXueJieDuanBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.JiaoXueJieDuanBiao">
+              <MappingFragment StoreEntitySet="JiaoXueJieDuanBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="JieDuanMing" ColumnName="JieDuanMing" />
+                <ScalarProperty Name="ShenHeShiFouTongGuo" ColumnName="ShenHeShiFouTongGuo" />
+                <ScalarProperty Name="ShiFouQiYong" ColumnName="ShiFouQiYong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JiaoXueJiHuaBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.JiaoXueJiHuaBiao">
+              <MappingFragment StoreEntitySet="JiaoXueJiHuaBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="JiHuaBianHaoJiBanBen" ColumnName="JiHuaBianHaoJiBanBen" />
+                <ScalarProperty Name="KaiShiShiYongShiJian" ColumnName="KaiShiShiYongShiJian" />
+                <ScalarProperty Name="ZhongZhiShiYongShiJian" ColumnName="ZhongZhiShiYongShiJian" />
+                <ScalarProperty Name="ShenHeRen" ColumnName="ShenHeRen" />
+                <ScalarProperty Name="ShenHeShiFouTongGuo" ColumnName="ShenHeShiFouTongGuo" />
+                <ScalarProperty Name="ShiFouQiYong" ColumnName="ShiFouQiYong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JiaoXueKeCheng">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.JiaoXueKeCheng">
+              <MappingFragment StoreEntitySet="JiaoXueKeCheng">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KeChengMing" ColumnName="KeChengMing" />
+                <ScalarProperty Name="SuoShuJiaoXueJiHua" ColumnName="SuoShuJiaoXueJiHua" />
+                <ScalarProperty Name="SuoShuJiaoXueJieDuan" ColumnName="SuoShuJiaoXueJieDuan" />
+                <ScalarProperty Name="JiaoXueJiHuaDeKaiZhanShunXuHao" ColumnName="JiaoXueJiHuaDeKaiZhanShunXuHao" />
+                <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+                <ScalarProperty Name="ZengJiaShiJian" ColumnName="ZengJiaShiJian" />
+                <ScalarProperty Name="ZengJiaLaiYuan" ColumnName="ZengJiaLaiYuan" />
+                <ScalarProperty Name="ShiFouShanChu" ColumnName="ShiFouShanChu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JiaoYuanDaiKeBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.JiaoYuanDaiKeBiao">
+              <MappingFragment StoreEntitySet="JiaoYuanDaiKeBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RiQi" ColumnName="RiQi" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="ShiJianDuan" ColumnName="ShiJianDuan" />
+                <ScalarProperty Name="ShiJianMing" ColumnName="ShiJianMing" />
+                <ScalarProperty Name="KeChengBianHao" ColumnName="KeChengBianHao" />
+                <ScalarProperty Name="KeChengMingChen" ColumnName="KeChengMingChen" />
+                <ScalarProperty Name="ZhangJieBianHao" ColumnName="ZhangJieBianHao" />
+                <ScalarProperty Name="ZhangJieMingChen" ColumnName="ZhangJieMingChen" />
+                <ScalarProperty Name="ZiYuanBianHao" ColumnName="ZiYuanBianHao" />
+                <ScalarProperty Name="ZiYuanMingChen" ColumnName="ZiYuanMingChen" />
+                <ScalarProperty Name="JiaoYuanBianHao" ColumnName="JiaoYuanBianHao" />
+                <ScalarProperty Name="JiaoYuanMingChen" ColumnName="JiaoYuanMingChen" />
+                <ScalarProperty Name="ShiShiShiJian" ColumnName="ShiShiShiJian" />
+                <ScalarProperty Name="CanJiaRenYuan" ColumnName="CanJiaRenYuan" />
+                <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+                <ScalarProperty Name="ZhuangTai" ColumnName="ZhuangTai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JiaoYuanDuiYingJiHuaZhangJie">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.JiaoYuanDuiYingJiHuaZhangJie">
+              <MappingFragment StoreEntitySet="JiaoYuanDuiYingJiHuaZhangJie">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DuiYingJiHuaMing" ColumnName="DuiYingJiHuaMing" />
+                <ScalarProperty Name="BanJiID" ColumnName="BanJiID" />
+                <ScalarProperty Name="BanJiMingChen" ColumnName="BanJiMingChen" />
+                <ScalarProperty Name="LiLunKeCiShu" ColumnName="LiLunKeCiShu" />
+                <ScalarProperty Name="RenKeLaoShi" ColumnName="RenKeLaoShi" />
+                <ScalarProperty Name="RenKeLaoShiMingChen" ColumnName="RenKeLaoShiMingChen" />
+                <ScalarProperty Name="ZhiShiDianXuHao" ColumnName="ZhiShiDianXuHao" />
+                <ScalarProperty Name="ZhiShiDian" ColumnName="ZhiShiDian" />
+                <ScalarProperty Name="CanJiaLaoShi" ColumnName="CanJiaLaoShi" />
+                <ScalarProperty Name="CanJiaLaoShiID" ColumnName="CanJiaLaoShiID" />
+                <ScalarProperty Name="ShiFouGeBan" ColumnName="ShiFouGeBan" />
+                <ScalarProperty Name="RenKeLaoShiKeShiShu" ColumnName="RenKeLaoShiKeShiShu" />
+                <ScalarProperty Name="CanJiaLaoShiKeShiShu" ColumnName="CanJiaLaoShiKeShiShu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KeChengPaiKeZongBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.KeChengPaiKeZongBiao">
+              <MappingFragment StoreEntitySet="KeChengPaiKeZongBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RiQi" ColumnName="RiQi" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="ShiJianDuan" ColumnName="ShiJianDuan" />
+                <ScalarProperty Name="ShiJianMing" ColumnName="ShiJianMing" />
+                <ScalarProperty Name="KeChengBianHao" ColumnName="KeChengBianHao" />
+                <ScalarProperty Name="KeChengMingChen" ColumnName="KeChengMingChen" />
+                <ScalarProperty Name="ZhangJieBianHao" ColumnName="ZhangJieBianHao" />
+                <ScalarProperty Name="ZhangJieMingChen" ColumnName="ZhangJieMingChen" />
+                <ScalarProperty Name="ZiYuanBianHao" ColumnName="ZiYuanBianHao" />
+                <ScalarProperty Name="ZiYuanMingChen" ColumnName="ZiYuanMingChen" />
+                <ScalarProperty Name="JiaoYuanBianHao" ColumnName="JiaoYuanBianHao" />
+                <ScalarProperty Name="JiaoYuanMingChen" ColumnName="JiaoYuanMingChen" />
+                <ScalarProperty Name="ShiShiShiJian" ColumnName="ShiShiShiJian" />
+                <ScalarProperty Name="CanJiaRenYuan" ColumnName="CanJiaRenYuan" />
+                <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+                <ScalarProperty Name="ZhuangTai" ColumnName="ZhuangTai" />
+                <ScalarProperty Name="ShangChuanDeWenJian" ColumnName="ShangChuanDeWenJian" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KeChengShouKeZhangJie">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.KeChengShouKeZhangJie">
+              <MappingFragment StoreEntitySet="KeChengShouKeZhangJie">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SuoShuKeChengMing" ColumnName="SuoShuKeChengMing" />
+                <ScalarProperty Name="SuoShuKeChengBianHao" ColumnName="SuoShuKeChengBianHao" />
+                <ScalarProperty Name="ZhangJieBianHao" ColumnName="ZhangJieBianHao" />
+                <ScalarProperty Name="ZhangJieMingChen" ColumnName="ZhangJieMingChen" />
+                <ScalarProperty Name="JianYiKeShi" ColumnName="JianYiKeShi" />
+                <ScalarProperty Name="JianYiShouKeZiYuan" ColumnName="JianYiShouKeZiYuan" />
+                <ScalarProperty Name="ShiFouKeGeBanKaiZhan" ColumnName="ShiFouKeGeBanKaiZhan" />
+                <ScalarProperty Name="ZhangJieShunXuHao" ColumnName="ZhangJieShunXuHao" />
+                <ScalarProperty Name="ZengJiaLaiYuan" ColumnName="ZengJiaLaiYuan" />
+                <ScalarProperty Name="ShiFouShanChu" ColumnName="ShiFouShanChu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KeShiBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.KeShiBiao">
+              <MappingFragment StoreEntitySet="KeShiBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="KeChengMingChen" ColumnName="KeChengMingChen" />
+                <ScalarProperty Name="KeChengBianHao" ColumnName="KeChengBianHao" />
+                <ScalarProperty Name="ShangKeCount" ColumnName="ShangKeCount" />
+                <ScalarProperty Name="ShiFouWanChengBeKeCheng" ColumnName="ShiFouWanChengBeKeCheng" />
+                <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+                <ScalarProperty Name="ZhuangTai" ColumnName="ZhuangTai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaiKeBanJiMoRenSheZhi">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.PaiKeBanJiMoRenSheZhi">
+              <MappingFragment StoreEntitySet="PaiKeBanJiMoRenSheZhi">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BanJiId" ColumnName="BanJiId" />
+                <ScalarProperty Name="BanJiMingChen" ColumnName="BanJiMingChen" />
+                <ScalarProperty Name="AnPaiLiLunKeCiShu" ColumnName="AnPaiLiLunKeCiShu" />
+                <ScalarProperty Name="AnPaiZiXiKeCiShu" ColumnName="AnPaiZiXiKeCiShu" />
+                <ScalarProperty Name="AnPaiJiTaKeCiShu" ColumnName="AnPaiJiTaKeCiShu" />
+                <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaiKeFangAnBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.PaiKeFangAnBiao">
+              <MappingFragment StoreEntitySet="PaiKeFangAnBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ScenarioName" ColumnName="ScenarioName" />
+                <ScalarProperty Name="one" ColumnName="one" />
+                <ScalarProperty Name="two" ColumnName="two" />
+                <ScalarProperty Name="three" ColumnName="three" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaiKeJiHua">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.PaiKeJiHua">
+              <MappingFragment StoreEntitySet="PaiKeJiHua">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="JiHuaMingChen" ColumnName="JiHuaMingChen" />
+                <ScalarProperty Name="KaiShiShiJian" ColumnName="KaiShiShiJian" />
+                <ScalarProperty Name="JieShuShiJian" ColumnName="JieShuShiJian" />
+                <ScalarProperty Name="ShiFouCaiYong" ColumnName="ShiFouCaiYong" />
+                <ScalarProperty Name="ShiFouWanCheng" ColumnName="ShiFouWanCheng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaikeLinshiBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.PaikeLinshiBiao">
+              <MappingFragment StoreEntitySet="PaikeLinshiBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RQ" ColumnName="RQ" />
+                <ScalarProperty Name="SD" ColumnName="SD" />
+                <ScalarProperty Name="JS" ColumnName="JS" />
+                <ScalarProperty Name="BJ" ColumnName="BJ" />
+                <ScalarProperty Name="JY" ColumnName="JY" />
+                <ScalarProperty Name="KC" ColumnName="KC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaiKeList">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.PaiKeList">
+              <MappingFragment StoreEntitySet="PaiKeList">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="ClassRoom" ColumnName="ClassRoom" />
+                <ScalarProperty Name="KC" ColumnName="KC" />
+                <ScalarProperty Name="Teacher" ColumnName="Teacher" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="SD" ColumnName="SD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaiKeShiDuanYuZiYuanZuHe">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.PaiKeShiDuanYuZiYuanZuHe">
+              <MappingFragment StoreEntitySet="PaiKeShiDuanYuZiYuanZuHe">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KeYongZiYuanBianHao" ColumnName="KeYongZiYuanBianHao" />
+                <ScalarProperty Name="ZiYuanMing" ColumnName="ZiYuanMing" />
+                <ScalarProperty Name="ZhouJi_ShiJian" ColumnName="ZhouJi_ShiJian" />
+                <ScalarProperty Name="ShiJianDuan" ColumnName="ShiJianDuan" />
+                <ScalarProperty Name="ShiJianMing" ColumnName="ShiJianMing" />
+                <ScalarProperty Name="ShiFouPaiKe" ColumnName="ShiFouPaiKe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="XueShengBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.XueShengBiao">
+              <MappingFragment StoreEntitySet="XueShengBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="StudentClassID" ColumnName="StudentClassID" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="MiMa" ColumnName="MiMa" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+                <ScalarProperty Name="ZhuangTai" ColumnName="ZhuangTai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="XueShengYuBanJiDuiYingBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.XueShengYuBanJiDuiYingBiao">
+              <MappingFragment StoreEntitySet="XueShengYuBanJiDuiYingBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="StudentClassID" ColumnName="StudentClassID" />
+                <ScalarProperty Name="StudentClass" ColumnName="StudentClass" />
+                <ScalarProperty Name="StartTiem" ColumnName="StartTiem" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YiCiPaiKeDeKeBiaoXinXiBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.YiCiPaiKeDeKeBiaoXinXiBiao">
+              <MappingFragment StoreEntitySet="YiCiPaiKeDeKeBiaoXinXiBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RiQi" ColumnName="RiQi" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="ShiJianDuan" ColumnName="ShiJianDuan" />
+                <ScalarProperty Name="ShiJianMing" ColumnName="ShiJianMing" />
+                <ScalarProperty Name="KeChengBianHao" ColumnName="KeChengBianHao" />
+                <ScalarProperty Name="KeChengMingChen" ColumnName="KeChengMingChen" />
+                <ScalarProperty Name="ZhangJieBianHao" ColumnName="ZhangJieBianHao" />
+                <ScalarProperty Name="ZhangJieMingChen" ColumnName="ZhangJieMingChen" />
+                <ScalarProperty Name="ZiYuanBianHao" ColumnName="ZiYuanBianHao" />
+                <ScalarProperty Name="ZiYuanMingChen" ColumnName="ZiYuanMingChen" />
+                <ScalarProperty Name="JiaoYuanBianHao" ColumnName="JiaoYuanBianHao" />
+                <ScalarProperty Name="JiaoYuanMingChen" ColumnName="JiaoYuanMingChen" />
+                <ScalarProperty Name="ShiShiShiJian" ColumnName="ShiShiShiJian" />
+                <ScalarProperty Name="CanJiaRenYuan" ColumnName="CanJiaRenYuan" />
+                <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+                <ScalarProperty Name="ZhuangTai" ColumnName="ZhuangTai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YuanGongBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.YuanGongBiao">
+              <MappingFragment StoreEntitySet="YuanGongBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RuGangShiJian" ColumnName="RuGangShiJian" />
+                <ScalarProperty Name="JiaoYuanMingChen" ColumnName="JiaoYuanMingChen" />
+                <ScalarProperty Name="ZhiWeiID" ColumnName="ZhiWeiID" />
+                <ScalarProperty Name="ShanChangKeCheng" ColumnName="ShanChangKeCheng" />
+                <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+                <ScalarProperty Name="YuanGongZhuangTai" ColumnName="YuanGongZhuangTai" />
+                <ScalarProperty Name="MiMa" ColumnName="MiMa" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZhengZaiShangKeBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.ZhengZaiShangKeBiao">
+              <MappingFragment StoreEntitySet="ZhengZaiShangKeBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RiQi" ColumnName="RiQi" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="ShiJianDuan" ColumnName="ShiJianDuan" />
+                <ScalarProperty Name="ShiJianMing" ColumnName="ShiJianMing" />
+                <ScalarProperty Name="KeChengBianHao" ColumnName="KeChengBianHao" />
+                <ScalarProperty Name="KeChengMingChen" ColumnName="KeChengMingChen" />
+                <ScalarProperty Name="ZhangJieBianHao" ColumnName="ZhangJieBianHao" />
+                <ScalarProperty Name="ZhangJieMingChen" ColumnName="ZhangJieMingChen" />
+                <ScalarProperty Name="ZiYuanBianHao" ColumnName="ZiYuanBianHao" />
+                <ScalarProperty Name="ZiYuanMingChen" ColumnName="ZiYuanMingChen" />
+                <ScalarProperty Name="JiaoYuanBianHao" ColumnName="JiaoYuanBianHao" />
+                <ScalarProperty Name="JiaoYuanMingChen" ColumnName="JiaoYuanMingChen" />
+                <ScalarProperty Name="ShiShiShiJian" ColumnName="ShiShiShiJian" />
+                <ScalarProperty Name="CanJiaRenYuan" ColumnName="CanJiaRenYuan" />
+                <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+                <ScalarProperty Name="ZhuangTai" ColumnName="ZhuangTai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZhiWeiBiao">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.ZhiWeiBiao">
+              <MappingFragment StoreEntitySet="ZhiWeiBiao">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ZhiWeiMing" ColumnName="ZhiWeiMing" />
+                <ScalarProperty Name="ShiFouQiYong" ColumnName="ShiFouQiYong" />
+                <ScalarProperty Name="BuMenID" ColumnName="BuMenID" />
+                <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZiYuanGuanLi">
+            <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.ZiYuanGuanLi">
+              <MappingFragment StoreEntitySet="ZiYuanGuanLi">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ZiYuanMing" ColumnName="ZiYuanMing" />
+                <ScalarProperty Name="ZiYuanLeiXing" ColumnName="ZiYuanLeiXing" />
+                <ScalarProperty Name="ZiYuanWeiZhi" ColumnName="ZiYuanWeiZhi" />
+                <ScalarProperty Name="ZiYuanRongNaRenShu" ColumnName="ZiYuanRongNaRenShu" />
+                <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+                <ScalarProperty Name="ShiFouYunHuDuoBanTongPai" ColumnName="ShiFouYunHuDuoBanTongPai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,48 @@
+﻿@{
+    /**/
+
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SetUp</title>
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/plugins/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/css/fs.css" media="all" />
+    <script type="text/javascript" src="/MyFsLayui/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fsDict.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fs.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/frame.js?v=1.7.0"></script>
+    <script>
+        function ConvertTime(obj) {
+            var time = new Date(parseInt(obj.substr(6)));
+            return time.toLocaleDateString();
+        };
+    </script>
+</head>
+<body>
+    <div class="layui-fluid">
+        @*<div class="layui-form-item" style="text-align: center;">
+            <button class="layui-btn" lay-submit="" lay-filter="save" url="/Mainbusiness/Play">设置本次排课方案</button>
+        </div>*@
+        <div class="layui-col-md12">
+            <table id="fsDatagrid" lay-filter="fsDatagrid" class="fsDatagrid" isload="1"
+                   url="/BanJiMoRenShezi/ShowList" ispage="1" pagesize="10" height="full-160"></table>
+            <!--定义列-->
+            <div class="fsDatagridCols">
+                <p checkbox="true" />
+                <p type="numbers" title="序号" />
+                <p field="ID" title="编号" width="100" />
+                <p field="BanJiMingChen" title="班级名" width="200" />
+                <p field="AnPaiLiLunKeCiShu" title="安排理论课次数" width="120" />
+                <p field="AnPaiZiXiKeCiShu" title="安排上机次数" width="100" />
+                <p fixed="right" align="center" title="操作" width="220" toolbar="#barDemo" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

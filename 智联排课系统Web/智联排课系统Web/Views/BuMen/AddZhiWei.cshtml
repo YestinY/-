@@ -1,0 +1,72 @@
+﻿@{
+    Layout = null;
+}
+@model List<Models.ZM.DG>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>增加职位</title>
+    <meta content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="https://cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/plugins/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/MyFsLayui/css/fs.css" media="all" />
+    <script type="text/javascript" src="/MyFsLayui/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fsDict.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/fs.js?v=1.7.0"></script>
+    <script type="text/javascript" src="/MyFsLayui/plugins/frame/js/frame.js?v=1.7.0"></script>
+</head>
+<body>
+    <div class="layui-fluid">
+        <!--表单开始 start -->
+        <form class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label">职位名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="ZhiWeiMing" required="" lay-vertype="tips" lay-verify="required" placeholder="请输入职位名称" autocomplete="off" class="layui-input" />
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">部门</label>
+                <div class="layui-input-inline">
+                    <select name="BuMenID" lay-verify="required">
+                        <option value="-1">--不限--</option>
+                       @foreach (var item in Model)
+                       {
+                           <option value="@item.ID">@item.BuMenMing</option>
+                       }
+                    </select>
+                </div>
+            </div>
+            
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">备注</label>
+                <div class="layui-input-block">
+                    <input type="text" name="BeiZhu" required="" lay-vertype="tips" lay-verify="required"
+                        placeholder="请输入备注" autocomplete="off" class="layui-input" />
+                </div>
+            </div>
+
+            <hr />
+            <div class="layui-form-item" style="text-align: center;">
+                <button class="layui-btn" lay-submit="" lay-filter="save" url="/BuMen/AddZW">新增</button>
+                <button type="button" class="layui-btn layui-btn-primary" function="close">关闭</button>
+            </div>
+        </form>
+        <!--表单开始 end -->
+    </div>
+</body>
+</html>

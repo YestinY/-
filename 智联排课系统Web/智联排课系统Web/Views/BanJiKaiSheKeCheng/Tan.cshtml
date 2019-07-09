@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+}
+@model 智联排课系统Web.Models.All
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tan</title>
+    <script src="~/MyFsLayui/plugins/frame/js/main.js"></script>
+    <script type="text/javascript">
+        function Set() {
+            var str = "";
+            $(".BZR").each(function (index, item) {
+                if ($(item).prop("checked")) {
+                    str += $(item).val() + ",";
+                }
+            })
+            window.parent.Set(str);
+            
+        }
+    </script>
+    <style>
+        ul li {
+            display: inline
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        @foreach (var item in Model.List2)
+        {
+            <li><input type="checkbox" value="@item.ID" class="BZR" />@item.JiaoYuanMingChen</li>
+        }
+    </ul>
+    <button type="button" onclick="">确认提交</button>
+</body>
+</html>

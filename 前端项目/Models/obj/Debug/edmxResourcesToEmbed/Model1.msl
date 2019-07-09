@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ZhiLianPaiKeXiTongDBModelStoreContainer" CdmEntityContainer="ZhiLianPaiKeXiTongDBEntities">
+    <EntitySetMapping Name="BanJiBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BanJiBiao">
+        <MappingFragment StoreEntitySet="BanJiBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BanJiMing" ColumnName="BanJiMing" />
+          <ScalarProperty Name="BanJiRenShu" ColumnName="BanJiRenShu" />
+          <ScalarProperty Name="KaiBanShiJian" ColumnName="KaiBanShiJian" />
+          <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+          <ScalarProperty Name="YuJiJieShuShiJian" ColumnName="YuJiJieShuShiJian" />
+          <ScalarProperty Name="BanJiZhuangTai" ColumnName="BanJiZhuangTai" />
+          <ScalarProperty Name="JieDuanID" ColumnName="JieDuanID" />
+          <ScalarProperty Name="JiaoXuePlan" ColumnName="JiaoXuePlan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BanJiKaiSheKeChengJiHuaBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BanJiKaiSheKeChengJiHuaBiao">
+        <MappingFragment StoreEntitySet="BanJiKaiSheKeChengJiHuaBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BanJiID" ColumnName="BanJiID" />
+          <ScalarProperty Name="BanJiMing" ColumnName="BanJiMing" />
+          <ScalarProperty Name="KeChengMing" ColumnName="KeChengMing" />
+          <ScalarProperty Name="CaiYongJiaoXueJiHua" ColumnName="CaiYongJiaoXueJiHua" />
+          <ScalarProperty Name="KaiSheJiaoXueJieDuan" ColumnName="KaiSheJiaoXueJieDuan" />
+          <ScalarProperty Name="ZhangJieBianHao" ColumnName="ZhangJieBianHao" />
+          <ScalarProperty Name="ZhangJieMingChen" ColumnName="ZhangJieMingChen" />
+          <ScalarProperty Name="JianYiKeShi" ColumnName="JianYiKeShi" />
+          <ScalarProperty Name="ShouKeDeMoShi" ColumnName="ShouKeDeMoShi" />
+          <ScalarProperty Name="AnPaiJiaoYuan" ColumnName="AnPaiJiaoYuan" />
+          <ScalarProperty Name="AnPaiShiJian" ColumnName="AnPaiShiJian" />
+          <ScalarProperty Name="AnPaiZiYuan" ColumnName="AnPaiZiYuan" />
+          <ScalarProperty Name="ShiJiKeShi" ColumnName="ShiJiKeShi" />
+          <ScalarProperty Name="ShiJiJiaoYuan" ColumnName="ShiJiJiaoYuan" />
+          <ScalarProperty Name="ShiJiShangKeShiJian" ColumnName="ShiJiShangKeShiJian" />
+          <ScalarProperty Name="ShiJiZiYuan" ColumnName="ShiJiZiYuan" />
+          <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+          <ScalarProperty Name="KeChengShunXuHao" ColumnName="KeChengShunXuHao" />
+          <ScalarProperty Name="ShiFouYiWanCheng" ColumnName="ShiFouYiWanCheng" />
+          <ScalarProperty Name="ShiFouYiQuXiao" ColumnName="ShiFouYiQuXiao" />
+          <ScalarProperty Name="ShiFouHeBing" ColumnName="ShiFouHeBing" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BanZhuRenSuoDaiBanJiBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BanZhuRenSuoDaiBanJiBiao">
+        <MappingFragment StoreEntitySet="BanZhuRenSuoDaiBanJiBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BanJiBianHao" ColumnName="BanJiBianHao" />
+          <ScalarProperty Name="KaiShiDaiBanShiJian" ColumnName="KaiShiDaiBanShiJian" />
+          <ScalarProperty Name="JieShuShiJian" ColumnName="JieShuShiJian" />
+          <ScalarProperty Name="BanZhuRenBianHao" ColumnName="BanZhuRenBianHao" />
+          <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BeCiPaiKeMorenKeCiBioa">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BeCiPaiKeMorenKeCiBioa">
+        <MappingFragment StoreEntitySet="BeCiPaiKeMorenKeCiBioa">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ZiYuanBianHao" ColumnName="ZiYuanBianHao" />
+          <ScalarProperty Name="ZiYuanMingChen" ColumnName="ZiYuanMingChen" />
+          <ScalarProperty Name="ClassCount" ColumnName="ClassCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BenCiPaiBanKeYongZiYuan">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BenCiPaiBanKeYongZiYuan">
+        <MappingFragment StoreEntitySet="BenCiPaiBanKeYongZiYuan">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KeYongZiYuanBianHao" ColumnName="KeYongZiYuanBianHao" />
+          <ScalarProperty Name="KeYongZiYuanMingChen" ColumnName="KeYongZiYuanMingChen" />
+          <ScalarProperty Name="PaiKeJiHuaBianHao" ColumnName="PaiKeJiHuaBianHao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BenCiPaiKeBanJiJiCiShu">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BenCiPaiKeBanJiJiCiShu">
+        <MappingFragment StoreEntitySet="BenCiPaiKeBanJiJiCiShu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DuiYingJiHuaMing" ColumnName="DuiYingJiHuaMing" />
+          <ScalarProperty Name="KaiShiShiJian" ColumnName="KaiShiShiJian" />
+          <ScalarProperty Name="JieShuShiJian" ColumnName="JieShuShiJian" />
+          <ScalarProperty Name="BanJiId" ColumnName="BanJiId" />
+          <ScalarProperty Name="BanJiMingChen" ColumnName="BanJiMingChen" />
+          <ScalarProperty Name="AnPaiLiLunKeCiShu" ColumnName="AnPaiLiLunKeCiShu" />
+          <ScalarProperty Name="AnPaiShangJiCiShu" ColumnName="AnPaiShangJiCiShu" />
+          <ScalarProperty Name="AnPaiJiTaKeCiShu" ColumnName="AnPaiJiTaKeCiShu" />
+          <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+          <ScalarProperty Name="ZhuangTai" ColumnName="ZhuangTai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BenCiPaiKeShiDuanBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BenCiPaiKeShiDuanBiao">
+        <MappingFragment StoreEntitySet="BenCiPaiKeShiDuanBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="JiHuaMingChen" ColumnName="JiHuaMingChen" />
+          <ScalarProperty Name="JiHuaBianHao" ColumnName="JiHuaBianHao" />
+          <ScalarProperty Name="ShiJian" ColumnName="ShiJian" />
+          <ScalarProperty Name="ShiDuan" ColumnName="ShiDuan" />
+          <ScalarProperty Name="DuiYingShiJian" ColumnName="DuiYingShiJian" />
+          <ScalarProperty Name="ShiFouPaiKe" ColumnName="ShiFouPaiKe" />
+          <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuMenBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.BuMenBiao">
+        <MappingFragment StoreEntitySet="BuMenBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BuMenMingCheng" ColumnName="BuMenMingCheng" />
+          <ScalarProperty Name="DuiYingFuJiID" ColumnName="DuiYingFuJiID" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="BuMenFuZheRen" ColumnName="BuMenFuZheRen" />
+          <ScalarProperty Name="BuMenDengJiGuanXi" ColumnName="BuMenDengJiGuanXi" />
+          <ScalarProperty Name="ChengLiTime" ColumnName="ChengLiTime" />
+          <ScalarProperty Name="ShiFouQiYong" ColumnName="ShiFouQiYong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JiaoXueJieDuanBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.JiaoXueJieDuanBiao">
+        <MappingFragment StoreEntitySet="JiaoXueJieDuanBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="JieDuanMing" ColumnName="JieDuanMing" />
+          <ScalarProperty Name="ShenHeShiFouTongGuo" ColumnName="ShenHeShiFouTongGuo" />
+          <ScalarProperty Name="ShiFouQiYong" ColumnName="ShiFouQiYong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JiaoXueJiHuaBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.JiaoXueJiHuaBiao">
+        <MappingFragment StoreEntitySet="JiaoXueJiHuaBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="JiHuaBianHaoJiBanBen" ColumnName="JiHuaBianHaoJiBanBen" />
+          <ScalarProperty Name="KaiShiShiYongShiJian" ColumnName="KaiShiShiYongShiJian" />
+          <ScalarProperty Name="ZhongZhiShiYongShiJian" ColumnName="ZhongZhiShiYongShiJian" />
+          <ScalarProperty Name="ShenHeRen" ColumnName="ShenHeRen" />
+          <ScalarProperty Name="ShenHeShiFouTongGuo" ColumnName="ShenHeShiFouTongGuo" />
+          <ScalarProperty Name="ShiFouQiYong" ColumnName="ShiFouQiYong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JiaoXueKeCheng">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.JiaoXueKeCheng">
+        <MappingFragment StoreEntitySet="JiaoXueKeCheng">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KeChengMing" ColumnName="KeChengMing" />
+          <ScalarProperty Name="SuoShuJiaoXueJiHua" ColumnName="SuoShuJiaoXueJiHua" />
+          <ScalarProperty Name="SuoShuJiaoXueJieDuan" ColumnName="SuoShuJiaoXueJieDuan" />
+          <ScalarProperty Name="JiaoXueJiHuaDeKaiZhanShunXuHao" ColumnName="JiaoXueJiHuaDeKaiZhanShunXuHao" />
+          <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+          <ScalarProperty Name="ZengJiaShiJian" ColumnName="ZengJiaShiJian" />
+          <ScalarProperty Name="ZengJiaLaiYuan" ColumnName="ZengJiaLaiYuan" />
+          <ScalarProperty Name="ShiFouShanChu" ColumnName="ShiFouShanChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JiaoYuanDaiKeBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.JiaoYuanDaiKeBiao">
+        <MappingFragment StoreEntitySet="JiaoYuanDaiKeBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RiQi" ColumnName="RiQi" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="ShiJianDuan" ColumnName="ShiJianDuan" />
+          <ScalarProperty Name="ShiJianMing" ColumnName="ShiJianMing" />
+          <ScalarProperty Name="KeChengBianHao" ColumnName="KeChengBianHao" />
+          <ScalarProperty Name="KeChengMingChen" ColumnName="KeChengMingChen" />
+          <ScalarProperty Name="ZhangJieBianHao" ColumnName="ZhangJieBianHao" />
+          <ScalarProperty Name="ZhangJieMingChen" ColumnName="ZhangJieMingChen" />
+          <ScalarProperty Name="ZiYuanBianHao" ColumnName="ZiYuanBianHao" />
+          <ScalarProperty Name="ZiYuanMingChen" ColumnName="ZiYuanMingChen" />
+          <ScalarProperty Name="JiaoYuanBianHao" ColumnName="JiaoYuanBianHao" />
+          <ScalarProperty Name="JiaoYuanMingChen" ColumnName="JiaoYuanMingChen" />
+          <ScalarProperty Name="ShiShiShiJian" ColumnName="ShiShiShiJian" />
+          <ScalarProperty Name="CanJiaRenYuan" ColumnName="CanJiaRenYuan" />
+          <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+          <ScalarProperty Name="ZhuangTai" ColumnName="ZhuangTai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JiaoYuanDuiYingJiHuaZhangJie">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.JiaoYuanDuiYingJiHuaZhangJie">
+        <MappingFragment StoreEntitySet="JiaoYuanDuiYingJiHuaZhangJie">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DuiYingJiHuaMing" ColumnName="DuiYingJiHuaMing" />
+          <ScalarProperty Name="BanJiID" ColumnName="BanJiID" />
+          <ScalarProperty Name="BanJiMingChen" ColumnName="BanJiMingChen" />
+          <ScalarProperty Name="LiLunKeCiShu" ColumnName="LiLunKeCiShu" />
+          <ScalarProperty Name="RenKeLaoShi" ColumnName="RenKeLaoShi" />
+          <ScalarProperty Name="RenKeLaoShiMingChen" ColumnName="RenKeLaoShiMingChen" />
+          <ScalarProperty Name="ZhiShiDianXuHao" ColumnName="ZhiShiDianXuHao" />
+          <ScalarProperty Name="ZhiShiDian" ColumnName="ZhiShiDian" />
+          <ScalarProperty Name="CanJiaLaoShi" ColumnName="CanJiaLaoShi" />
+          <ScalarProperty Name="CanJiaLaoShiID" ColumnName="CanJiaLaoShiID" />
+          <ScalarProperty Name="ShiFouGeBan" ColumnName="ShiFouGeBan" />
+          <ScalarProperty Name="RenKeLaoShiKeShiShu" ColumnName="RenKeLaoShiKeShiShu" />
+          <ScalarProperty Name="CanJiaLaoShiKeShiShu" ColumnName="CanJiaLaoShiKeShiShu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KeChengPaiKeZongBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.KeChengPaiKeZongBiao">
+        <MappingFragment StoreEntitySet="KeChengPaiKeZongBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RiQi" ColumnName="RiQi" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="ShiJianDuan" ColumnName="ShiJianDuan" />
+          <ScalarProperty Name="ShiJianMing" ColumnName="ShiJianMing" />
+          <ScalarProperty Name="KeChengBianHao" ColumnName="KeChengBianHao" />
+          <ScalarProperty Name="KeChengMingChen" ColumnName="KeChengMingChen" />
+          <ScalarProperty Name="ZhangJieBianHao" ColumnName="ZhangJieBianHao" />
+          <ScalarProperty Name="ZhangJieMingChen" ColumnName="ZhangJieMingChen" />
+          <ScalarProperty Name="ZiYuanBianHao" ColumnName="ZiYuanBianHao" />
+          <ScalarProperty Name="ZiYuanMingChen" ColumnName="ZiYuanMingChen" />
+          <ScalarProperty Name="JiaoYuanBianHao" ColumnName="JiaoYuanBianHao" />
+          <ScalarProperty Name="JiaoYuanMingChen" ColumnName="JiaoYuanMingChen" />
+          <ScalarProperty Name="ShiShiShiJian" ColumnName="ShiShiShiJian" />
+          <ScalarProperty Name="CanJiaRenYuan" ColumnName="CanJiaRenYuan" />
+          <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+          <ScalarProperty Name="ZhuangTai" ColumnName="ZhuangTai" />
+          <ScalarProperty Name="ShangChuanDeWenJian" ColumnName="ShangChuanDeWenJian" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KeChengShouKeZhangJie">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.KeChengShouKeZhangJie">
+        <MappingFragment StoreEntitySet="KeChengShouKeZhangJie">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SuoShuKeChengMing" ColumnName="SuoShuKeChengMing" />
+          <ScalarProperty Name="SuoShuKeChengBianHao" ColumnName="SuoShuKeChengBianHao" />
+          <ScalarProperty Name="ZhangJieBianHao" ColumnName="ZhangJieBianHao" />
+          <ScalarProperty Name="ZhangJieMingChen" ColumnName="ZhangJieMingChen" />
+          <ScalarProperty Name="JianYiKeShi" ColumnName="JianYiKeShi" />
+          <ScalarProperty Name="JianYiShouKeZiYuan" ColumnName="JianYiShouKeZiYuan" />
+          <ScalarProperty Name="ShiFouKeGeBanKaiZhan" ColumnName="ShiFouKeGeBanKaiZhan" />
+          <ScalarProperty Name="ZhangJieShunXuHao" ColumnName="ZhangJieShunXuHao" />
+          <ScalarProperty Name="ZengJiaLaiYuan" ColumnName="ZengJiaLaiYuan" />
+          <ScalarProperty Name="ShiFouShanChu" ColumnName="ShiFouShanChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KeShiBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.KeShiBiao">
+        <MappingFragment StoreEntitySet="KeShiBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+          <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+          <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="KeChengMingChen" ColumnName="KeChengMingChen" />
+          <ScalarProperty Name="KeChengBianHao" ColumnName="KeChengBianHao" />
+          <ScalarProperty Name="ShangKeCount" ColumnName="ShangKeCount" />
+          <ScalarProperty Name="ShiFouWanChengBeKeCheng" ColumnName="ShiFouWanChengBeKeCheng" />
+          <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+          <ScalarProperty Name="ZhuangTai" ColumnName="ZhuangTai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaiKeBanJiMoRenSheZhi">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.PaiKeBanJiMoRenSheZhi">
+        <MappingFragment StoreEntitySet="PaiKeBanJiMoRenSheZhi">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BanJiId" ColumnName="BanJiId" />
+          <ScalarProperty Name="BanJiMingChen" ColumnName="BanJiMingChen" />
+          <ScalarProperty Name="AnPaiLiLunKeCiShu" ColumnName="AnPaiLiLunKeCiShu" />
+          <ScalarProperty Name="AnPaiZiXiKeCiShu" ColumnName="AnPaiZiXiKeCiShu" />
+          <ScalarProperty Name="AnPaiJiTaKeCiShu" ColumnName="AnPaiJiTaKeCiShu" />
+          <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaiKeFangAnBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.PaiKeFangAnBiao">
+        <MappingFragment StoreEntitySet="PaiKeFangAnBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ScenarioName" ColumnName="ScenarioName" />
+          <ScalarProperty Name="one" ColumnName="one" />
+          <ScalarProperty Name="two" ColumnName="two" />
+          <ScalarProperty Name="three" ColumnName="three" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaiKeJiHua">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.PaiKeJiHua">
+        <MappingFragment StoreEntitySet="PaiKeJiHua">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="JiHuaMingChen" ColumnName="JiHuaMingChen" />
+          <ScalarProperty Name="KaiShiShiJian" ColumnName="KaiShiShiJian" />
+          <ScalarProperty Name="JieShuShiJian" ColumnName="JieShuShiJian" />
+          <ScalarProperty Name="ShiFouCaiYong" ColumnName="ShiFouCaiYong" />
+          <ScalarProperty Name="ShiFouWanCheng" ColumnName="ShiFouWanCheng" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaikeLinshiBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.PaikeLinshiBiao">
+        <MappingFragment StoreEntitySet="PaikeLinshiBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RQ" ColumnName="RQ" />
+          <ScalarProperty Name="SD" ColumnName="SD" />
+          <ScalarProperty Name="JS" ColumnName="JS" />
+          <ScalarProperty Name="BJ" ColumnName="BJ" />
+          <ScalarProperty Name="JY" ColumnName="JY" />
+          <ScalarProperty Name="KC" ColumnName="KC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaiKeList">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.PaiKeList">
+        <MappingFragment StoreEntitySet="PaiKeList">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="ClassRoom" ColumnName="ClassRoom" />
+          <ScalarProperty Name="KC" ColumnName="KC" />
+          <ScalarProperty Name="Teacher" ColumnName="Teacher" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="SD" ColumnName="SD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaiKeShiDuanYuZiYuanZuHe">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.PaiKeShiDuanYuZiYuanZuHe">
+        <MappingFragment StoreEntitySet="PaiKeShiDuanYuZiYuanZuHe">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KeYongZiYuanBianHao" ColumnName="KeYongZiYuanBianHao" />
+          <ScalarProperty Name="ZiYuanMing" ColumnName="ZiYuanMing" />
+          <ScalarProperty Name="ZhouJi_ShiJian" ColumnName="ZhouJi_ShiJian" />
+          <ScalarProperty Name="ShiJianDuan" ColumnName="ShiJianDuan" />
+          <ScalarProperty Name="ShiJianMing" ColumnName="ShiJianMing" />
+          <ScalarProperty Name="ShiFouPaiKe" ColumnName="ShiFouPaiKe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XueShengBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.XueShengBiao">
+        <MappingFragment StoreEntitySet="XueShengBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="StudentClassID" ColumnName="StudentClassID" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="MiMa" ColumnName="MiMa" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="ZhuangTai" ColumnName="ZhuangTai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XueShengYuBanJiDuiYingBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.XueShengYuBanJiDuiYingBiao">
+        <MappingFragment StoreEntitySet="XueShengYuBanJiDuiYingBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="StudentClassID" ColumnName="StudentClassID" />
+          <ScalarProperty Name="StudentClass" ColumnName="StudentClass" />
+          <ScalarProperty Name="StartTiem" ColumnName="StartTiem" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YiCiPaiKeDeKeBiaoXinXiBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.YiCiPaiKeDeKeBiaoXinXiBiao">
+        <MappingFragment StoreEntitySet="YiCiPaiKeDeKeBiaoXinXiBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RiQi" ColumnName="RiQi" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="ShiJianDuan" ColumnName="ShiJianDuan" />
+          <ScalarProperty Name="ShiJianMing" ColumnName="ShiJianMing" />
+          <ScalarProperty Name="KeChengBianHao" ColumnName="KeChengBianHao" />
+          <ScalarProperty Name="KeChengMingChen" ColumnName="KeChengMingChen" />
+          <ScalarProperty Name="ZhangJieBianHao" ColumnName="ZhangJieBianHao" />
+          <ScalarProperty Name="ZhangJieMingChen" ColumnName="ZhangJieMingChen" />
+          <ScalarProperty Name="ZiYuanBianHao" ColumnName="ZiYuanBianHao" />
+          <ScalarProperty Name="ZiYuanMingChen" ColumnName="ZiYuanMingChen" />
+          <ScalarProperty Name="JiaoYuanBianHao" ColumnName="JiaoYuanBianHao" />
+          <ScalarProperty Name="JiaoYuanMingChen" ColumnName="JiaoYuanMingChen" />
+          <ScalarProperty Name="ShiShiShiJian" ColumnName="ShiShiShiJian" />
+          <ScalarProperty Name="CanJiaRenYuan" ColumnName="CanJiaRenYuan" />
+          <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+          <ScalarProperty Name="ZhuangTai" ColumnName="ZhuangTai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YuanGongBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.YuanGongBiao">
+        <MappingFragment StoreEntitySet="YuanGongBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RuGangShiJian" ColumnName="RuGangShiJian" />
+          <ScalarProperty Name="JiaoYuanMingChen" ColumnName="JiaoYuanMingChen" />
+          <ScalarProperty Name="ZhiWeiID" ColumnName="ZhiWeiID" />
+          <ScalarProperty Name="ShanChangKeCheng" ColumnName="ShanChangKeCheng" />
+          <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+          <ScalarProperty Name="YuanGongZhuangTai" ColumnName="YuanGongZhuangTai" />
+          <ScalarProperty Name="MiMa" ColumnName="MiMa" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZhengZaiShangKeBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.ZhengZaiShangKeBiao">
+        <MappingFragment StoreEntitySet="ZhengZaiShangKeBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RiQi" ColumnName="RiQi" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="ShiJianDuan" ColumnName="ShiJianDuan" />
+          <ScalarProperty Name="ShiJianMing" ColumnName="ShiJianMing" />
+          <ScalarProperty Name="KeChengBianHao" ColumnName="KeChengBianHao" />
+          <ScalarProperty Name="KeChengMingChen" ColumnName="KeChengMingChen" />
+          <ScalarProperty Name="ZhangJieBianHao" ColumnName="ZhangJieBianHao" />
+          <ScalarProperty Name="ZhangJieMingChen" ColumnName="ZhangJieMingChen" />
+          <ScalarProperty Name="ZiYuanBianHao" ColumnName="ZiYuanBianHao" />
+          <ScalarProperty Name="ZiYuanMingChen" ColumnName="ZiYuanMingChen" />
+          <ScalarProperty Name="JiaoYuanBianHao" ColumnName="JiaoYuanBianHao" />
+          <ScalarProperty Name="JiaoYuanMingChen" ColumnName="JiaoYuanMingChen" />
+          <ScalarProperty Name="ShiShiShiJian" ColumnName="ShiShiShiJian" />
+          <ScalarProperty Name="CanJiaRenYuan" ColumnName="CanJiaRenYuan" />
+          <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+          <ScalarProperty Name="ZhuangTai" ColumnName="ZhuangTai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZhiWeiBiao">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.ZhiWeiBiao">
+        <MappingFragment StoreEntitySet="ZhiWeiBiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ZhiWeiMing" ColumnName="ZhiWeiMing" />
+          <ScalarProperty Name="ShiFouQiYong" ColumnName="ShiFouQiYong" />
+          <ScalarProperty Name="BuMenID" ColumnName="BuMenID" />
+          <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZiYuanGuanLi">
+      <EntityTypeMapping TypeName="ZhiLianPaiKeXiTongDBModel.ZiYuanGuanLi">
+        <MappingFragment StoreEntitySet="ZiYuanGuanLi">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ZiYuanMing" ColumnName="ZiYuanMing" />
+          <ScalarProperty Name="ZiYuanLeiXing" ColumnName="ZiYuanLeiXing" />
+          <ScalarProperty Name="ZiYuanWeiZhi" ColumnName="ZiYuanWeiZhi" />
+          <ScalarProperty Name="ZiYuanRongNaRenShu" ColumnName="ZiYuanRongNaRenShu" />
+          <ScalarProperty Name="BeiZhu" ColumnName="BeiZhu" />
+          <ScalarProperty Name="ShiFouYunHuDuoBanTongPai" ColumnName="ShiFouYunHuDuoBanTongPai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

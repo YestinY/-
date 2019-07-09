@@ -1,0 +1,619 @@
+﻿@{
+    Layout = null;
+}
+@using Models;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>zhuye</title>
+    <link href="~/layui/css/layui.css" rel="stylesheet" />
+    <script src="~/Login/js/jquery-1.8.0.min.js"></script>
+    <script src="~/layui/layui.js"></script>
+    <style>
+        .layui-table-box, .layui-table-view {
+            position: relative;
+            /* overflow: hidden; */
+        }
+
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .pop {
+            display: none;
+            width: 500px;
+            min-height: 470px;
+            max-height: 750px;
+            height: 370px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            padding: 25px;
+            z-index: 130;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 3px 18px rgba(100, 0, 0, .5);
+        }
+
+        .pop-top {
+            height: 40px;
+            width: 100%;
+            border-bottom: 1px #E5E5E5 solid;
+        }
+
+            .pop-top h2 {
+                float: left;
+                display: black;
+            }
+
+            .pop-top span {
+                float: right;
+                cursor: pointer;
+                font-weight: bold;
+                display: black;
+            }
+
+        .pop-foot {
+            height: 50px;
+            line-height: 50px;
+            width: 100%;
+            border-top: 1px #E5E5E5 solid;
+            text-align: right;
+            margin-left: -40px;
+        }
+
+        .pop-cancel, .pop-ok {
+            padding: 8px 15px;
+            margin: 15px 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #337AB7;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .pop-cancel {
+            background-color: #FFF;
+            border: 1px #CECECE solid;
+            color: #000;
+        }
+
+        .pop-content {
+            width: 500px;
+            height: 350px;
+        }
+
+        .pop-content-left {
+            float: left;
+        }
+
+        .pop-content-right {
+            width: 330px;
+            float: left;
+            padding-top: 10px;
+            padding-left: 80px;
+            font-size: 16px;
+            line-height: 35px;
+        }
+
+        .bgPop {
+            display: none;
+            position: absolute;
+            z-index: 129;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.2);
+        }
+    </style>
+    <
+    <script>
+        function ConvertTime(obj) {
+            var time = new Date(parseInt(obj.substr(6)));
+            return time.toLocaleDateString();
+        };
+    </script>
+</head>
+<body>
+    <div class="layui-tab" style="border: 0px solid red; width: 1600px; margin: 0 auto; padding-top: 15px; padding-bottom: 0px; background-color: #EBEBEB; margin-top: 55px">
+        <ul class="layui-tab-title">
+            <li style="font-size: 25px; font-family: 'Arial Unicode MS'; color: #E5342A">智联排课系统</li>
+            <li class="layui-this" style="margin-left: 60px">一次排课的课表信息</li>
+
+            @if (Session["Teacher"] != null)
+            {
+                <li>教员所带班级进度</li>
+                <li>教员课时</li>
+            }
+            else
+            {
+                <li>班级开设课程计划</li>
+            }
+        </ul>
+        @{string Name = "";
+            if (Session["Teacher"] != null)
+            {
+                YuanGongBiao Teacher = Session["Teacher"] as YuanGongBiao;
+                Name = Teacher.Name;
+            }
+            else
+            {
+                XueShengBiao xs = Session["Student"] as XueShengBiao;
+                Name = xs.StudentName;
+            }}
+        <div style="margin-left: 790px; margin-top: -30px">
+            欢迎你，<a href="javascript:void(0)" style="position: absolute" class="click_pop">
+                @Name
+            </a>
+        </div>
+        <div id="showtimes" style="margin-left: 950px; margin-top: -20px">
+            show_cur_times();
+        </div>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item"></div>
+
+            @*内容一*@
+            <div class="layui-tab-item layui-show" style="border: 0px solid blue; margin-top: 15px">
+                <div class="demoTable">
+                    <div class="layui-inline">
+                        <label class="layui-form-label"> 班级名称:</label>
+                        <div class="layui-input-block">
+                            <input name="id" class="layui-input" id="demoReload" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">上课日期:</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" id="test21" type="text" placeholder="yyyy-MM-dd">
+                        </div>
+                    </div>
+                    <div class="layui-input-inline">
+                        <button class="layui-btn" data-type="reload">搜索</button>
+                    </div>
+                </div>
+                <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
+                <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                <script>
+                    layui.use('table', function () {
+                        var table = layui.table;
+                        //方法级渲染
+                        table.render({
+                            elem: '#LAY_table_user'
+                            , url: '/YiCipaikedekebiaoxinxi/GetAllYiCipaike'
+                            , cols: [[
+                                { checkbox: true, fixed: true }
+                                , { field: 'ID', title: '编号', width: 70, sort: true, fixed: true }
+                                , { field: 'RiQi', title: '日期', width: 140 }
+                                , { field: 'ClassName', title: '班级', width: 140 }
+                                , { field: 'ShiJianDuan', title: '时间段', width: 80, sort: true }
+                                , { field: 'ShiJianMing', title: '时间名', width: 110 }
+                                , { field: 'KeChengMingChen', title: '课程名称', width: 180 }
+                                , { field: 'ZhangJieMingChen', title: '章节名称', width: 180 }
+                                , { field: 'ZiYuanMingChen', title: '资源名称', width: 100 }
+                                , { field: 'JiaoYuanMingChen', title: '教员名称', width: 100 }
+                                , { field: 'JiaoYuanMingChen', title: '实施人员', width: 100 }
+                                , { field: 'CanJiaRenYuan', title: '参加人员', width: 100 }
+                                , { field: 'BeiZhu', title: '备注', width: 160 }
+                                , { field: 'ZhuangTai', title: '状态', width: 100 }
+                            ]]
+                            , id: 'ClassName'
+                            , page: true
+                            , height: 670
+                            , limit: 20
+                        });
+
+                        var $ = layui.$, active = {
+                            reload: function () {
+                                var demoReload = $("#demoReload").val();
+                                var Time = $("#test21").val();
+                                layer.msg(demoReload);
+                                //执行重载
+                                table.reload('ClassName', {
+                                    where: {
+                                        Name: demoReload,
+                                        time: Time
+                                    }
+                                    , page: {
+                                        curr: 1 //重新从第 1 页开始
+                                    }
+                                });
+                            }
+                        };
+                        function a(d) {
+                            var dd = new Date.parse(d.substr(6));
+                            return dd.to
+                        }
+                        layui.use('laydate', function () {
+                            var laydate = layui.laydate;
+                            laydate.render({
+                                elem: '#test21'
+                                , change: function (value, date) {
+
+                                }
+                            });
+                        });
+
+                        $('.demoTable .layui-btn').on('click', function () {
+                            var type = $(this).data('type');
+                            active[type] ? active[type].call(this) : '';
+                        });
+                    });
+                </script>
+            </div>
+
+            @*内容二*@
+            <div class="layui-tab-item" style="margin-top: 15px">
+                <div class="demoTable">
+                    <div class="layui-form-item">
+                        @*<div class="layui-inline">
+                            <label class="layui-form-label">课程</label>
+                            <div class="layui-input-inline">
+                                @*<select name="modules" lay-search="" lay-verify="required" id="modules">
+                                        <option value="-1">全部</option>
+                                        @{ List<Models.JiaoXueKeCheng> jiaoXueKes = ViewBag.List as List<Models.JiaoXueKeCheng>; }
+                                        @foreach (var item in jiaoXueKes)
+                                        {
+                                            <option value="@item.ID">@item.KeChengMing</option>
+                                        }
+                                    </select>*@
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="layui-input-inline">
+                        <button class="layui-btn" data-type="reload">搜索</button>
+                    </div>*@
+                </div>
+                <table class="layui-hide" id="LAY_table_user2" lay-filter="user"></table>
+                @*<script src="//res.layui.com/layui/dist/layui.js" charset="utf-8"></script>*@
+                <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                <script>
+                    layui.use('table', function () {
+                        var table = layui.table;
+                        //方法级渲染
+                        table.render({
+                            elem: '#LAY_table_user2'
+                            , url: '/YiCipaikedekebiaoxinxi/GetAllBanJikaishekecheng'
+                            , cols: [[
+                                { checkbox: true, fixed: true }
+                                , { field: 'ID', title: '编号', width: 80, sort: true, fixed: true }
+                                , { field: 'BanJiMing', title: '班级名', width: 120 }
+                                , { field: 'KeChengMing', title: '课程名', width: 180 }
+                                , { field: 'CaiYongJiaoXueJiHua', title: '采用教学计划', width: 120 }
+                                , { field: 'KaiSheJiaoXueJieDuan', title: '开设教学阶段', width: 120 }
+                                , { field: 'ZhangJieBianHao', title: '章节编号', width: 90 }
+                                , { field: 'ZhangJieMingChen', title: '章节名称', width: 180 }
+                                , { field: 'JianYiKeShi', title: '建议课时', width: 90 }
+                                , { field: 'ShouKeDeMoShi', title: '授课的模式', width: 100 }
+                                , { field: 'AnPaiJiaoYuan', title: '安排教员', width: 90 }
+                                , { field: 'AnPaiZiYuan', title: '安排资源', width: 90 }
+                                , { field: 'ShiJiKeShi', title: '实际课时', width: 90 }
+                                , { field: 'ShiJiJiaoYuan', title: '实际教员', width: 90 }
+                               
+                                //, { field: 'ShiJiZiYuan', title: '实际资源', width: 90 }
+                                , { field: 'BeiZhu', title: '备注', width: 80 }
+                                , { field: 'KeChengShunXuHao', title: '课程顺序号', width: 100 }
+                                , { field: 'ShiFouYiWanCheng', title: '是否已完成', width: 100 }
+                                , { field: 'ShiFouYiQuXiao', title: '是否已取消', width: 100 }
+                                , { field: 'ShiFouHeBing', title: '是否合并', width: 90 }
+                            ]]
+                            , id: 'testReload2'
+                            , page: true
+                            , height: 0
+                            , limit: 15
+                        });
+
+
+                        var $ = layui.$, active = {
+                            reload: function () {
+                                var demoReload2 = $('#demoReload2');
+
+                                //执行重载
+                                table.reload('testReload2', {
+                                    page: {
+                                        curr: 1 //重新从第 1 页开始
+                                    }
+                                    , where: {
+                                        key: {
+                                            id: demoReload2.val()
+                                        }
+                                    }
+                                });
+                            }
+                        };
+
+                        $('.demoTable2 .layui-btn').on('click', function () {
+                            var type = $(this).data('type');
+                            active[type] ? active[type].call(this) : '';
+                        });
+                    });
+                </script>
+            </div>
+            <div class="layui-tab-item" style="margin-top: 10px">内容3</div>
+
+        </div>
+        <script type="text/html" id="stateTp1">
+            <span>{{ ConvertTime(d.RiQi) }}</span>
+        </script>
+    </div>
+    @*   <script src="//res.layui.com/layui/dist/layui.js" charset="utf-8"></script>*@
+    <script src="~/Scripts/jquery-1.7.1.js"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script>
+        layui.use('element', function () {
+            var $ = layui.jquery
+                , element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+            //触发事件
+            var active = {
+                tabAdd: function () {
+                    //新增一个Tab项
+                    element.tabAdd('demo', {
+                        title: '新选项' + (Math.random() * 1000 | 0) //用于演示
+                        , content: '内容' + (Math.random() * 1000 | 0)
+                        , id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
+                    })
+                }
+                , tabDelete: function (othis) {
+                    //删除指定Tab项
+                    element.tabDelete('demo', '44'); //删除：“商品管理”
+
+
+                    othis.addClass('layui-btn-disabled');
+                }
+                , tabChange: function () {
+                    //切换到指定Tab项
+                    element.tabChange('demo', '22'); //切换到：用户管理
+                }
+            };
+
+            $('.site-demo-active').on('click', function () {
+                var othis = $(this), type = othis.data('type');
+                active[type] ? active[type].call(this, othis) : '';
+            });
+
+            //Hash地址的定位
+            var layid = location.hash.replace(/^#test=/, '');
+            element.tabChange('test', layid);
+
+            element.on('tab(test)', function (elem) {
+                location.hash = 'test=' + $(this).attr('lay-id');
+            });
+
+        });
+    </script>
+    <script type="text/javascript">
+        function show_cur_times() {
+            //获取当前日期
+            var date_time = new Date();
+            //定义星期
+            var week;
+            //switch判断
+            switch (date_time.getDay()) {
+                case 1: week = "星期一"; break;
+                case 2: week = "星期二"; break;
+                case 3: week = "星期三"; break;
+                case 4: week = "星期四"; break;
+                case 5: week = "星期五"; break;
+                case 6: week = "星期六"; break;
+                default: week = "星期天"; break;
+            }
+
+            //年
+            var year = date_time.getFullYear();
+            //判断小于10，前面补0
+            if (year < 10) {
+                year = "0" + year;
+            }
+
+            //月
+            var month = date_time.getMonth() + 1;
+            //判断小于10，前面补0
+            if (month < 10) {
+                month = "0" + month;
+            }
+
+            //日
+            var day = date_time.getDate();
+            //判断小于10，前面补0
+            if (day < 10) {
+                day = "0" + day;
+            }
+
+            //时
+            var hours = date_time.getHours();
+            //判断小于10，前面补0
+            if (hours < 10) {
+                hours = "0" + hours;
+            }
+
+            //分
+            var minutes = date_time.getMinutes();
+            //判断小于10，前面补0
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+
+            //秒
+            var seconds = date_time.getSeconds();
+            //判断小于10，前面补0
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+
+            //拼接年月日时分秒
+            var date_str = year + "年" + month + "月" + day + "日 " + hours + ":" + minutes + ":" + seconds + " " + week;
+            //显示在id为showtimes的容器里
+            document.getElementById("showtimes").innerHTML = date_str;
+        }
+
+        //设置1秒调用一次show_cur_times函数
+        setInterval("show_cur_times()", 100);
+    </script>
+
+    @*修改个人信息*@
+    <!--遮罩层-->
+    <div class="bgPop"></div>
+    <!--弹出框-->
+    <div class="pop">
+        <div class="pop-top">
+            <h2>个人信息</h2>
+            <span class="pop-close">Ｘ</span>
+        </div>
+        <div class="pop-content">
+            <div class="pop-content-left">
+                <img src="" alt="" class="teathumb">
+            </div>
+            <div class="pop-content-right">
+                @{
+                    if (Session["Teacher"] != null)
+                    {
+                        YuanGongBiao Teacher = Session["Teacher"] as YuanGongBiao;
+                        <form id="frm" name="frm" action="/YiCipaikedekebiaoxinxi/UpdateAction">
+                            <table style="border-collapse: separate; border-spacing: 0px 10px; margin-top: -10px">
+                                <tr>
+                                    <td>
+                                        <input type="text" hidden id="ID" name="ID" style="width: 200px; height: 30px; margin-left: 20px" value="@Teacher.ID" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>姓名</td>
+                                    <td>
+                                        <input type="text" id="JiaoYuanMingChen" name="JiaoYuanMingChen" style="width: 200px; height: 30px; margin-left: 20px" value="@Teacher.Name" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>入岗时间</td>
+                                    <td>
+                                        <input type="text" readonly="only" id="RuGangShiJian" name="RuGangShiJian" style="width: 200px; height: 30px; margin-left: 20px" value="@Teacher.RuGangShiJian" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>职位名</td>
+                                    <td>
+                                        <input type="text" readonly="only" id="ZhiWeiID" name="ZhiWeiID" style="width: 200px; height: 30px; margin-left: 20px" value="@Teacher.ZhiWeiID" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>擅长课程</td>
+                                    <td>
+                                        <input type="text" id="ShanChangKeCheng" name="ShanChangKeCheng" style="width: 200px; height: 30px; margin-left: 20px" value="@Teacher.ShanChangKeCheng" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>密码</td>
+                                    <td>
+                                        <input type="text" id="MiMa" name="MiMa" style="width: 200px; height: 30px; margin-left: 20px" value="@Teacher.MiMa" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>家庭住址</td>
+                                    <td>
+                                        <input type="text" id="Address" name="Address" style="width: 200px; height: 30px; margin-left: 20px" value="@Teacher.Address" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>联系电话</td>
+                                    <td>
+                                        <input type="text" id="Phone" name="Phone" style="width: 200px; height: 30px; margin-left: 20px" value="@Teacher.Phone" />
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="pop-foot">
+                                <input type="button" value="关闭" class="pop-cancel pop-close">
+                                <input type="submit" value="修改" class="pop-ok">
+                            </div>
+                        </form>
+                    }
+                    else
+                    {
+                        XueShengBiao Student = Session["Student"] as XueShengBiao;
+                        <form id="frm2" name="frm2" action="/YiCipaikedekebiaoxinxi/UpdateActionStu">
+                            <table style="border-collapse: separate; border-spacing: 0px 10px; margin-top: -10px">
+                                <tr>
+                                    <td>
+                                        <input type="text" hidden id="ID" name="ID" style="width: 200px; height: 30px; margin-left: 20px" value="@Student.ID" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>学生姓名</td>
+                                    <td>
+                                        <input type="text" id="StudentName" name="StudentName" style="width: 200px; height: 30px; margin-left: 20px" value="@Student.StudentName" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>性别</td>
+                                    <td style="float:left;margin-left:20px">
+                                        @if (Student.Sex == true)
+                                        {
+                                            <input type="radio" name="Sex" value="true" checked="checked" /><label style="font-size: 16px;margin-left:5px; color: #A6A6A6">男</label>
+                                            <input type="radio" name="Sex" value="false" style="margin-left:30px" /><label style="font-size: 16px;margin-left:5px; color: #A6A6A6">女</label>
+                                        }
+                                        else
+                                        {
+                                            <input type="radio" name="Sex" value="true" /><label style="font-size: 16px;margin-left:5px; color: #A6A6A6">男</label>
+                                            <input type="radio" name="Sex" value="false" checked="checked" style="margin-left:30px" /><label style="font-size: 16px;margin-left:5px; color: #A6A6A6">女</label>
+                                        }
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>年龄</td>
+                                    <td>
+                                        <input type="text" id="Age" name="Age" style="width: 200px; height: 30px; margin-left: 20px" value="@Student.Age" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>密码</td>
+                                    <td>
+                                        <input type="text" id="MiMA" name="MiMA" style="width: 200px; height: 30px; margin-left: 20px" value="@Student.MiMa" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>家庭住址</td>
+                                    <td>
+                                        <input type="text" id="Address" name="Address" style="width: 200px; height: 30px; margin-left: 20px" value="@Student.Address" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>联系电话</td>
+                                    <td>
+                                        <input type="text" id="Phone" name="Phone" style="width: 200px; height: 30px; margin-left: 20px" value="@Student.Phone" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>家庭联系电话</td>
+                                    <td>
+                                        <input type="text" id="HomePhone" name="HomePhone" style="width: 200px; height: 30px; margin-left: 20px" value="@Student.HomePhone" />
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="pop-foot">
+                                <input type="button" value="关闭" class="pop-cancel pop-close">
+                                <input type="submit" value="修改" class="pop-ok">
+                            </div>
+                        </form>
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.pop-close').click(function () {
+                $('.bgPop,.pop').hide();
+            });
+            $('.click_pop').click(function () {
+                $('.bgPop,.pop').show();
+            });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="33603c62e05142cb9465f07ca9ccc71b" Name="Diagram1">
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.BanJiBiao" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.BanJiKaiSheKeChengJiHuaBiao" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.BanZhuRenSuoDaiBanJiBiao" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.BeCiPaiKeMorenKeCiBioa" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.BenCiPaiBanKeYongZiYuan" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.BenCiPaiKeBanJiJiCiShu" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.BenCiPaiKeShiDuanBiao" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.BuMenBiao" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.JiaoXueJieDuanBiao" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.JiaoXueJiHuaBiao" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.JiaoXueKeCheng" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.JiaoYuanDaiKeBiao" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.JiaoYuanDuiYingJiHuaZhangJie" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.KeChengPaiKeZongBiao" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.KeChengShouKeZhangJie" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.KeShiBiao" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.PaiKeBanJiMoRenSheZhi" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.PaiKeFangAnBiao" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.PaiKeJiHua" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.PaikeLinshiBiao" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.PaiKeList" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.PaiKeShiDuanYuZiYuanZuHe" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.XueShengBiao" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.XueShengYuBanJiDuiYingBiao" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.YiCiPaiKeDeKeBiaoXinXiBiao" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.YuanGongBiao" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.ZhengZaiShangKeBiao" Width="1.5" PointX="14.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.ZhiWeiBiao" Width="1.5" PointX="4.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZhiLianPaiKeXiTongDBModel.ZiYuanGuanLi" Width="1.5" PointX="6.75" PointY="14.75" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
